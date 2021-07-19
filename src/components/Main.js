@@ -1,6 +1,9 @@
-import Surveys from "./Surveys";
 import {Route, Switch} from 'react-router-dom'
-import Categories from "../pages/Categories";
+import Categories from '../pages/Categories';
+import Nav from './components/Nav'
+import Form from './components/Form'
+import Surveys from './components/Surveys';
+import Survey from './components/Survey'
  
 function Main ({surveys}) {
     return (
