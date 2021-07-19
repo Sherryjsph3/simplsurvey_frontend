@@ -1,10 +1,9 @@
-function Qsection (props) {
+function Surveys (props) {
     return (
         <div>
             <h1>Surveys</h1>
         </div>
-
     )
 }
 
-export default Qsection;
+export default Surveys;
