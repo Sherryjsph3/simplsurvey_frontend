@@ -1,4 +1,7 @@
-function Mysurveys (props) {
+// import Form from './components/Form'
+
+
+function MySurveys (props) {
     return (
         <div>
             <h1>Mysurveys</h1>
@@ -6,4 +9,4 @@ function Mysurveys (props) {
     )
 }
 
-export default Mysurveys;
+export default MySurveys;
