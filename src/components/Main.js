@@ -1,6 +1,8 @@
-import Surveys from "./Surveys";
 import {Route, Switch} from 'react-router-dom'
-import Categories from "../pages/Categories";
+import Categories from '../pages/Categories.js';
+import MySurveys from '../pages/MySurveys.js'
+import Surveys from './Surveys.js';
+import Survey from './Survey.js'
  
 function Main ({surveys}) {
     return (
@@ -13,19 +15,19 @@ function Main ({surveys}) {
         </div>
         <main>
         <Switch>
-            <Route exact path='/'>
-                <Nav/>
-            </Route>
+            {/* <Route exact path='/'>
+                
+            </Route> */}
             <Route path='/categories'>
                 <Categories/>
             </Route>
-            <Route path='/form'>
-                <Form/>
+            <Route path='/mysurveys'>
+                <MySurveys/>
             </Route>
-            <Route path='/get_survey_questions'>
+            <Route path='/survey_questions'>
                 <Surveys/>
             </Route>
-            <Route path='/get_chosen_answers'>
+            <Route path='/answer_options'>
                 <Survey/>
             </Route>
         </Switch>
