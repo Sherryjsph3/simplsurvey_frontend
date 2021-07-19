@@ -1,9 +1,12 @@
 import Surveys from "./Surveys";
 
-function Main (props) {
+function Main ({surveys}) {
     return (
         <div>
             <h1>Main</h1>
+            <Surveys 
+            surveys={surveys}
+            />
         </div>
 
     )

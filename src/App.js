@@ -24,11 +24,61 @@ function App() {
     getSurveys();
   }, []);
 
+  async function handleCreateSurvey(formInputs) {
+    try {
+      const surveys = await fetch('http://localhost:3000/survey_questions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'Application/json'
+        },
+        body: JSON.stringify(formInputs)
+      }).then(res => res.json())
+
+      setSurveyState({ surveys });
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  async function handleDeleteSurvey(surveyId) {
+    try {
+      const surveys = await fetch(`http://localhost:3000/survey_questions/${surveyId}`, {
+        method: 'DELETE',
+      }).then(res => res.json());
+
+      setSurveyState({surveys});
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  async function handleUpdateSurvey(formInputs) {
+    try {
+      const {categories, survey_question_text, id} = formInputs;
+      const surveys = await fetch(`http://localhost:3000/survey_question/${id}`, {
+        method: 'PUT',
+        headers: {
+          "Content-Type": "Application/json"
+        },
+        body: JSON.stringify({categories, survey_question_text}),
+      }).then(res => res.json())
+      setSurveyState({surveys})
+    } catch(error) {
+      console.log(error) 
+    }
+  }
+
+
+
   return (
     <div className="App">
       <Header />
       <Nav />
-      <Main />
+      <Main 
+      surveys={surveyState.surveys}
+      />
     </div>
   );
 }
