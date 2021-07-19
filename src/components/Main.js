@@ -1,3 +1,5 @@
+import Surveys from "./Surveys";
+
 function Main (props) {
     return (
         <div>
