@@ -59,7 +59,6 @@ return (
         id='survey_question_text'
         />
          <input type="submit" value={props.survey ? "Edit" : "Add"} />
-
     </form>
 )
 
