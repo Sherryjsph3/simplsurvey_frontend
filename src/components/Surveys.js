@@ -3,13 +3,15 @@ import Survey from "./Survey";
 function Surveys ({surveys}) {
     return (
         <div>
-            <h1>Surveys</h1>
+          {surveys.map(survey => 
             <Survey 
-            surveys={surveys}
-            />
+                key={survey.id}
+                survey={survey}
+                />
+            )}
             
         </div>
-    )
+    );
 }
 
 export default Surveys;
