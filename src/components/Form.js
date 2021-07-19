@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Input from './Input.js'
+
 
 function Form(props) {
     const [formState, setFormState] = useState({
@@ -22,7 +22,7 @@ function handleChange(event) {
     }));
 }
 
-function handleSumbit(event) {
+function handleSubmit(event) {
     event.preventDefault();
     if(props.survey) {
         props.handleUpdate(formState)
@@ -34,7 +34,7 @@ function handleSumbit(event) {
 
 return (
     <form onSubmit={handleSubmit}>
-        <Input
+        <input
         handleChange={handleChange}
         name='user_id'
         placeholder='user_id'
@@ -42,7 +42,7 @@ return (
         value={formState.user_id}
         id='user_id'
         />
-        <Input
+        <input
         handleChange={handleChange}
         name='categories'
         placeholder='categories'
@@ -50,7 +50,7 @@ return (
         value={formState.categories}
         id='categories'
         />
-        <Input
+        <input
         handleChange={handleChange}
         name='survey_question_text'
         placeholder='survey_question_text'
