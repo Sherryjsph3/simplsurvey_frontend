@@ -1,4 +1,5 @@
 # SimplSurvey
+SimplSurvey is a simple application where users can
 
 ## `Technologies Used`
 * HTML5
