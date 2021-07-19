@@ -15,7 +15,7 @@ function App() {
   useEffect(() => {
     async function getSurveys() {
       try {
-        const surveys = await fetch('http://localhost:3000/surveys').then(response => response.json()) 
+        const surveys = await fetch('http://localhost:3000/surveyquestions').then(response => response.json()) 
         setSurveyState({surveys})
       } catch (error) {
         console.log(error)
