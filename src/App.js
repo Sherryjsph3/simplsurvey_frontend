@@ -5,24 +5,41 @@ import Main from './components/Main'
 //===========CSS IMPORT===============
 import './App.css';
 // ==========HOOKS====================
-import {useState, useEffect} from "react"
+import { useState, useEffect } from "react"
 
 
 function App() {
   const [surveyState, setSurveyState] = useState({
-    surveys: []});
+    surveys: []
+  });
+
+  // const [answerOptionsState, setAnswerOptionsState] = useState({
+  //   answerOptions: []
+  // });
 
   useEffect(() => {
     async function getSurveys() {
       try {
-        const surveys = await fetch('http://localhost:3000/survey_questions').then(response => response.json()) 
-        setSurveyState({surveys})
+        const surveys = await fetch('http://localhost:3000/survey_questions').then(response => response.json())
+        setSurveyState({ surveys })
       } catch (error) {
         console.log(error)
       }
     }
     getSurveys();
   }, []);
+
+  // useEffect(() => {
+  //   async function getAnswerOptions() {
+  //     try {
+  //       const answerOptions = await fetch('http://localhost:3000/answer_options').then(response => response.json())
+  //       setAnswerOptionsState({ answerOptions })
+  //     } catch (error) {
+  //       console.log(error)
+  //     }
+  //   }
+  //   getAnswerOptions();
+  // }, []);
 
   async function handleCreateSurvey(formInputs) {
     try {
@@ -47,7 +64,7 @@ function App() {
         method: 'DELETE',
       }).then(res => res.json());
 
-      setSurveyState({surveys});
+      setSurveyState({ surveys });
 
     } catch (error) {
       console.log(error)
@@ -56,17 +73,17 @@ function App() {
 
   async function handleUpdateSurvey(formInputs) {
     try {
-      const {categories, survey_question_text, id} = formInputs;
+      const { categories, survey_question_text, id } = formInputs;
       const surveys = await fetch(`http://localhost:3000/survey_question/${id}`, {
         method: 'PUT',
         headers: {
           "Content-Type": "Application/json"
         },
-        body: JSON.stringify({categories, survey_question_text}),
+        body: JSON.stringify({ categories, survey_question_text }),
       }).then(res => res.json())
-      setSurveyState({surveys})
-    } catch(error) {
-      console.log(error) 
+      setSurveyState({ surveys })
+    } catch (error) {
+      console.log(error)
     }
   }
 
@@ -76,8 +93,9 @@ function App() {
     <div className="App">
       <Header />
       <Nav />
-      <Main 
-      surveys={surveyState.surveys}
+      <Main
+        surveys={surveyState.surveys}
+      // answerOptions={answerOptionsState.answerOptions}
       />
     </div>
   );
