@@ -4,14 +4,17 @@ function Surveys({ surveys, answerOptions }) {
     return (
         <div>
             {surveys.map(survey =>
-                <Survey
-                    key={survey.id}
-                    survey={survey}
-                    answerOptions={answerOptions}
-                />
+                <>
+                    <Survey
+                        key={survey.id}
+                        survey={survey}
+                        answerOptions={answerOptions}
+                    />
+                    <div>{survey.id}</div>
+                </>
             )}
         </div>
     );
 }
-
+git 
 export default Surveys;
