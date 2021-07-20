@@ -6,11 +6,14 @@ import Main from './components/Main'
 import './App.css';
 // ==========HOOKS====================
 import {useState, useEffect} from "react"
+// ==========FIREBASE IMPORTS=========
+import {auth} from './services/firebase';
 
 
 function App() {
   const [surveyState, setSurveyState] = useState({
     surveys: []});
+    const [user, setUser] = useState(null);
 
   useEffect(() => {
     async function getSurveys() {
@@ -22,6 +25,9 @@ function App() {
       }
     }
     getSurveys();
+    const unsubscribe = auth.onAuthStateChanged((user) => setUser(user))
+    // cleanup effect
+    // return unsubscribe();
   }, []);
 
   async function handleCreateSurvey(formInputs) {
