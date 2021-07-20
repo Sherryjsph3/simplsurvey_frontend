@@ -59,7 +59,6 @@ return (
         </div>
         }
     
-   
     </div>
     <Link to='/'>Home</Link>
     <Link to='/categories'><p className="nav-text">Categories</p></Link>
