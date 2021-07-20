@@ -13,7 +13,7 @@ function App() {
     surveys: []
   });
 
-  const [answerOptionState, setAnswerOptionState] = useState({
+  const [answerOptionsState, setAnswerOptionsState] = useState({
     answerOptions: []
   });
 
@@ -33,7 +33,7 @@ function App() {
     async function getAnswerOptions() {
       try {
         const answerOptions = await fetch('http://localhost:3000/answer_options').then(response => response.json())
-        setAnswerOptionState({ answerOptions })
+        setAnswerOptionsState({ answerOptions })
       } catch (error) {
         console.log(error)
       }
@@ -95,6 +95,7 @@ function App() {
       <Nav />
       <Main
         surveys={surveyState.surveys}
+        answerOptions={answerOptionsState.answerOptions}
       />
     </div>
   );
