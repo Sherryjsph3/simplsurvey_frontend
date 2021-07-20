@@ -1,4 +1,4 @@
-function Survey({ surveys, answerOptions }) { // { survey, handleDelete, handleUpdate}
+function Survey({ survey, answerOptions }) { // { survey, handleDelete, handleUpdate}
 
     // function toggleForm() {
     //     setEditFormVisible(!editFormVisible)
@@ -8,13 +8,7 @@ function Survey({ surveys, answerOptions }) { // { survey, handleDelete, handleU
 
     return (
         <div className="survey">
-            <h3>{surveys.question_text}</h3>
-            {/* <Answers /> */}
-            {answerOptions.map(option => {
-                return (
-                    <input type="button" key={option.answer_text} href={`/answer_options/${surveys.survey_question_id}`}>select</input>
-                )
-            })}
+            <h3>{survey.survey_question_text}</h3>
         </div>
     )
 }

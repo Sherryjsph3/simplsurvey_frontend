@@ -13,9 +13,9 @@ function App() {
     surveys: []
   });
 
-  const [answerOptionsState, setAnswerOptionsState] = useState({
-    answerOptions: []
-  });
+  // const [answerOptionsState, setAnswerOptionsState] = useState({
+  //   answerOptions: []
+  // });
 
   useEffect(() => {
     async function getSurveys() {
@@ -29,17 +29,17 @@ function App() {
     getSurveys();
   }, []);
 
-  useEffect(() => {
-    async function getAnswerOptions() {
-      try {
-        const answerOptions = await fetch('http://localhost:3000/answer_options').then(response => response.json())
-        setAnswerOptionsState({ answerOptions })
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    getAnswerOptions();
-  }, []);
+  // useEffect(() => {
+  //   async function getAnswerOptions() {
+  //     try {
+  //       const answerOptions = await fetch('http://localhost:3000/answer_options').then(response => response.json())
+  //       setAnswerOptionsState({ answerOptions })
+  //     } catch (error) {
+  //       console.log(error)
+  //     }
+  //   }
+  //   getAnswerOptions();
+  // }, []);
 
   async function handleCreateSurvey(formInputs) {
     try {
@@ -95,7 +95,7 @@ function App() {
       <Nav />
       <Main
         surveys={surveyState.surveys}
-        answerOptions={answerOptionsState.answerOptions}
+      // answerOptions={answerOptionsState.answerOptions}
       />
     </div>
   );

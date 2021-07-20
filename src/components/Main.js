@@ -4,14 +4,14 @@ import Form from './Form.js';
 import Surveys from './Surveys.js';
 import Survey from './Survey.js';
 
-function Main({ surveys, answerOptions }) {
+function Main({ surveys }) {
     return (
         <>
             <div>
                 <h1>Main</h1>
                 <Surveys
                     surveys={surveys}
-                    answerOptions={answerOptions}
+                // answerOptions={answerOptions}
                 />
             </div>
             <main>
