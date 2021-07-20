@@ -16,7 +16,7 @@ function Survey({ Surveys }) { // { survey, handleDelete, handleUpdate}
             {/* <Answers /> */}
             {Surveys.answer_options.map(option => {
                 return (
-                    <input type="button" href={`/answer_options/${option.answer_option_id}`}>select</input>
+                    <input type="button" key={option.answer_text} href={`/answer_options/${option.answer_option_id}`}>select</input>
                 )
             })}
         </div>

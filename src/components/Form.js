@@ -6,14 +6,14 @@ function Form(props) {
         user_id: '',
         categories: '',
         survey_question_text: ''
-    })
-}
+    });
+
 
 useEffect(() => {
     if(props.survey) {
         setFormState(props.survey)
     }
-}, [props.survey])
+}, [props.survey]);
 
 function handleChange(event) {
     setFormState(prevState => ({
@@ -33,6 +33,7 @@ function handleSubmit(event) {
 }
 
 return (
+    
     <form onSubmit={handleSubmit}>
         <input
         handleChange={handleChange}
@@ -59,9 +60,8 @@ return (
         id='survey_question_text'
         />
          <input type="submit" value={props.survey ? "Edit" : "Add"} />
-
     </form>
-)
-
+);
+}
 
 export default Form;
