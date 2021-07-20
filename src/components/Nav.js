@@ -1,5 +1,5 @@
 import {login, logout} from '../services/firebase';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import {Link} from 'react-router-dom'
 
 function Nav ({user}) {
@@ -24,6 +24,7 @@ function Nav ({user}) {
     async function checkUserExist() {
        try {
            const users = await fetch('http://localhost:3000/users').then(res => res.json()) 
+           console.log(users);
            if (users.includes(users.google_id)) {
                setExistingUser(true);
            } else {
@@ -60,10 +61,11 @@ return (
     
    
     </div>
+    <Link to='/'>Home</Link>
     <Link to='/categories'><p className="nav-text">Categories</p></Link>
-    <Link to='/form'><p className="nav-text">New Survey</p></Link>
-    <Link to=''><p className="nav-text">My Surveys</p></Link>
-    <Link to=''><p className="nav-text">My Answers</p></Link>
+    <Link to='/new_survey'><p className="nav-text">New Survey</p></Link>
+    <Link to='/my_surveys'><p className="nav-text">My Surveys</p></Link>
+    <Link to='/my_answers'><p className="nav-text">My Answers</p></Link>
   
 </nav>
  
