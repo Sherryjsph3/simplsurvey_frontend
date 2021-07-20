@@ -42,28 +42,28 @@ function Nav ({user}) {
 return (
     <nav>
         
-    <div>
+    <div className="login-box">
         {
         user ?      
         <div
         onClick={logout}
         >
-            Logout
+            <p className="nav-text">Logout</p>
         </div> 
         :     
         <div
         onClick={() => handleLogin()}
         >
-            Login
+            <p className="nav-text">Login</p>
         </div>
         }
     
    
     </div>
-    <Link to='/categories'><h2>Categories</h2></Link>
-    <Link to='/form'><h2>New Survey</h2></Link>
-    <Link to=''><h2>My Surveys</h2></Link>
-    <Link to=''><h2>My Answers</h2></Link>
+    <Link to='/categories'><p className="nav-text">Categories</p></Link>
+    <Link to='/form'><p className="nav-text">New Survey</p></Link>
+    <Link to=''><p className="nav-text">My Surveys</p></Link>
+    <Link to=''><p className="nav-text">My Answers</p></Link>
   
 </nav>
  
