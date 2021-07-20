@@ -7,35 +7,6 @@ import Survey from './Survey.js';
 function Main({ surveys, answerOptions }) {
     return (
         <>
-<<<<<<< HEAD
-            <div>
-                <h1>Main</h1>
-                <Surveys
-                    surveys={surveys}
-                    answerOptions={answerOptions}
-                />
-            </div>
-            <main>
-                <Switch>
-                    <Route exact path='/'>
-
-                    </Route>
-                    <Route path='/categories'>
-                        <Categories />
-                    </Route>
-                    <Route path='/form'>
-                        <Form />
-                    </Route>
-                    <Route path='/survey_questions'>
-                        <Surveys />
-                    </Route>
-                    <Route path='/answer_options'>
-                        <Survey />
-                    </Route>
-                </Switch>
-            </main>
-        </>
-=======
         <div>
             <h1>Main</h1>
         <Surveys 
@@ -62,7 +33,6 @@ function Main({ surveys, answerOptions }) {
         </Switch>
         </main>
 </>
->>>>>>> 1616372fd7b6048807529d10e5a880f7d69dbde1
     )
 }
 
