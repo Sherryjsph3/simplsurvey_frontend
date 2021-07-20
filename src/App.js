@@ -6,16 +6,19 @@ import Main from './components/Main'
 import './App.css';
 // ==========HOOKS====================
 
-import {useState, useEffect} from "react"
+import { useState, useEffect } from "react"
 // ==========FIREBASE IMPORTS=========
-import {auth} from './services/firebase';
-
-
+import { auth } from './services/firebase';
 
 function App() {
   const [surveyState, setSurveyState] = useState({
-    surveys: []});
-    const [user, setUser] = useState(null);
+    surveys: []
+  });
+  const [user, setUser] = useState(null);
+
+  const [answerOptionsState, setAnswerOptionsState] = useState({
+    answerOptions: []
+  });
 
   useEffect(() => {
     async function getSurveys() {
@@ -32,17 +35,17 @@ function App() {
     // return unsubscribe();
   }, []);
 
-  // useEffect(() => {
-  //   async function getAnswerOptions() {
-  //     try {
-  //       const answerOptions = await fetch('http://localhost:3000/answer_options').then(response => response.json())
-  //       setAnswerOptionsState({ answerOptions })
-  //     } catch (error) {
-  //       console.log(error)
-  //     }
-  //   }
-  //   getAnswerOptions();
-  // }, []);
+  useEffect(() => {
+    async function getAnswerOptions() {
+      try {
+        const answerOptions = await fetch('http://localhost:3000/answer_options').then(response => response.json())
+        setAnswerOptionsState({ answerOptions })
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    getAnswerOptions();
+  }, []);
 
   async function handleCreateSurvey(formInputs) {
     try {
@@ -95,12 +98,12 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Nav 
+      <Nav
         user={user}
       />
       <Main
         surveys={surveyState.surveys}
-      // answerOptions={answerOptionsState.answerOptions}
+        answerOptions={answerOptionsState.answerOptions}
       />
     </div>
   );
