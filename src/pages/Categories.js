@@ -12,8 +12,10 @@ function Categories({surveys, history, setSelectedCategory}) {
        <>
             <h1>Categories</h1>
             <form onChange={handleChange}>  
-<label> Select Cars </label>  
+<label> Select Category </label>  
 <select>  
+<option value = ""></option>
+
 <option value = "Food">Food</option>   
                             
 <option value = "Pop Culture">Pop Cultue</option>     
