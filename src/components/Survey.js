@@ -1,8 +1,4 @@
-import { useState } from 'react';
-import Form from './Form';
-import Surveys from './Surveys'
-
-function Survey({ Surveys }) { // { survey, handleDelete, handleUpdate}
+function Survey({ surveys }) { // { survey, handleDelete, handleUpdate}
 
     // function toggleForm() {
     //     setEditFormVisible(!editFormVisible)
@@ -12,9 +8,9 @@ function Survey({ Surveys }) { // { survey, handleDelete, handleUpdate}
 
     return (
         <div className="survey">
-            <h3>{Surveys.question_text}</h3>
+            <h3>{surveys.question_text}</h3>
             {/* <Answers /> */}
-            {Surveys.answer_options.map(option => {
+            {surveys.answer_options.map(option => {
                 return (
                     <input type="button" key={option.answer_text} href={`/answer_options/${option.answer_option_id}`}>select</input>
                 )
