@@ -1,7 +1,43 @@
 import {login, logout} from '../services/firebase';
+import { useEffect, useState } from 'react';
 import {Link} from 'react-router-dom'
 
 function Nav ({user}) {
+    const [existingUser, setExistingUser] = useState(false);
+
+    async function createUser() {
+        try {
+            const users = await fetch('http://localhost:3000/users', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'Application/json'
+                },
+                body: JSON.stringify(user.uid)
+            }).then(res => res.json())
+
+            setExistingUser(true);
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    async function checkUserExist() {
+       try {
+           const users = await fetch('http://localhost:3000/users').then(res => res.json()) 
+           if (users.includes(users.google_id)) {
+               setExistingUser(true);
+           } else {
+               createUser();
+           }
+       }  catch (error) {
+           console.log(error)
+       }
+    }
+
+     function handleLogin() {
+         login();
+         checkUserExist();
+     }
 
 return (
     <nav>
@@ -16,7 +52,7 @@ return (
         </div> 
         :     
         <div
-        onClick={login}
+        onClick={() => handleLogin()}
         >
             Login
         </div>
