@@ -1,9 +1,17 @@
+import {useState} from "react";
 
-function Categories(props) {
+
+function Categories({surveys, history, setSelectedCategory}) {
+
+ function handleChange(event) {
+     setSelectedCategory(event.target.value);
+     history.push(`/category`);
+ }
+
     return (
        <>
             <h1>Categories</h1>
-            <form>  
+            <form onChange={handleChange}>  
 <label> Select Cars </label>  
 <select>  
 <option value = "Food">Food</option>   
