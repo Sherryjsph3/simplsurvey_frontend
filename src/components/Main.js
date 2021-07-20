@@ -9,7 +9,7 @@ function Main ({surveys}) {
         <>
         <div>
             <h1>Main</h1>
-            <Surveys 
+        <Surveys 
             surveys={surveys}
             />
         </div>
