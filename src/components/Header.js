@@ -1,7 +1,7 @@
 function Header(props) {
     return (
         <header>
-            <h1>SimplSurvey</h1>
+            <h1 className='logo'>SimplSurvey</h1>
         </header>
     )
 }
