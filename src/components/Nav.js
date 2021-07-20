@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 function Nav ({user}) {
 
 return (
-    <div>
+    <nav>
         
     <div>
         {
@@ -29,7 +29,7 @@ return (
     <Link to=''><h2>My Surveys</h2></Link>
     <Link to=''><h2>My Answers</h2></Link>
   
-</div>
+</nav>
  
   )
 }
