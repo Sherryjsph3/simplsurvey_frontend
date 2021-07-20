@@ -95,7 +95,9 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Nav />
+      <Nav 
+        user={user}
+      />
       <Main
         surveys={surveyState.surveys}
       // answerOptions={answerOptionsState.answerOptions}
