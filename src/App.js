@@ -95,7 +95,7 @@ function App() {
       <Nav />
       <Main
         surveys={surveyState.surveys}
-      // answerOptions={answerOptionsState.answerOptions}
+        answerOptions={answerOptionsState.answerOptions}
       />
     </div>
   );
