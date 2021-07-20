@@ -3,6 +3,8 @@ import { Route, Switch } from 'react-router-dom';
 import Categories from '../pages/Categories.js';
 import CategoryResults from '../pages/CategoryResults';
 import Form from './Form.js';
+import MySurveys from '../pages/MySurveys';
+import MyAnswers from '../pages/MyAnswers';
 import Surveys from './Surveys.js';
 import Survey from './Survey.js';
 
@@ -11,16 +13,12 @@ function Main({ surveys, answerOptions }) {
 
     return (
         <>
-        <div>
-            <h1>Main</h1>
-        <Surveys 
-            surveys={surveys}
-            />
-        </div>
         <main>
         <Switch>
            <Route exact path='/'>
-               
+           <Surveys 
+            surveys={surveys}
+            />
            </Route>
             <Route 
             path='/categories'
@@ -38,14 +36,14 @@ function Main({ surveys, answerOptions }) {
                 category={selectedCategory}
                 />
             </Route>
-            <Route path='/form'>
+            <Route path='/new_survey'>
                 <Form/>
             </Route>
-            <Route path='/survey_questions'>
-                <Surveys/>
+            <Route path='/my_surveys'>
+                <MySurveys />
             </Route>
-            <Route path='/answer_options'>
-                <Survey/>
+            <Route path='/my_answers'>
+                <MyAnswers />
             </Route>
         </Switch>
         </main>
