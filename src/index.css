@@ -1,31 +1,69 @@
-/* body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+/*==========Fonts==========*/
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&display=swap');
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&family=Montserrat:wght@100&display=swap');
+
+/*==========Variables==========*/
+:root {
+  --skyblue: rgb(131, 220, 238);
+  --darkblue: rgb(31, 32, 53);
+  --mustard: rgb(252, 203, 125);
+  --coral: rgb(251, 112, 116);
+}
 
 * {
   box-sizing: border-box;
   margin: 0;
 }
-.App {
+.container {
+  display: grid;
+
+  grid-template-areas:
+    "header header header"
+    "nav content aside"
+    "footer footer footer";
+  grid-template-columns: 20% 1fr 20%;
+  grid-template-rows: auto 1fr 200px;
+  grid-gap: 10px;
+  height: 100vh;
+}
+header {
+  grid-area: header;
+}
+
+body {
   text-align: center;
   background: url(https://i.imgur.com/LBDUD3J.jpg);
   background-repeat: no-repeat;
   background-size: cover;
 }
+nav {
+  grid-area: nav;
+  margin-left: 0.5rem;
+}
 
+main {
+  grid-area: content;
+}
+
+.aside {
+  grid-area: aside;
+  margin-right: 0.5rem;
+  
+}
+
+.new-form {
+  display: grid;
+  grid-template-columns: [labels] auto [controls] 1fr;
+  grid-auto-flow: row;
+  grid-gap: .3em;
+  padding: .1em;
+}
 
 .logo {
   font-family: 'Londrina Outline', cursive;
-  font-size: 60px;
+  font-weight: lighter;
+  font-size: 80px;
+  color: var(--darkblue)
 }
 

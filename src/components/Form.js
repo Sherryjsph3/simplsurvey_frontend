@@ -33,8 +33,8 @@ function handleSubmit(event) {
 }
 
 return (
-    
-    <form onSubmit={handleSubmit}>
+    <div className='aside'>
+    <form className='new-form' onSubmit={handleSubmit}>
         <input
         handleChange={handleChange}
         name='user_id'
@@ -61,6 +61,7 @@ return (
         />
          <input type="submit" value={props.survey ? "Edit" : "Add"} />
     </form>
+    </div>
 );
 }
 
