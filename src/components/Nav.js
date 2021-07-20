@@ -58,11 +58,18 @@ return (
         </div>
         }
     
-   
     </div>
+    <br/>
+    <br/>
     <Link to='/categories'><p className="nav-text">Categories</p></Link>
+    <br/>
+    <br/>
     <Link to='/form'><p className="nav-text">New Survey</p></Link>
+    <br/>
+    <br/>
     <Link to=''><p className="nav-text">My Surveys</p></Link>
+    <br/>
+    <br/>
     <Link to=''><p className="nav-text">My Answers</p></Link>
   
 </nav>

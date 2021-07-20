@@ -6,7 +6,7 @@
 /*==========Variables==========*/
 :root {
   --skyblue: rgb(131, 220, 238);
-  --darkblue: rgb(31, 32, 53);
+  --darkblue: rgb(42, 45, 97);
   --mustard: rgb(252, 203, 125);
   --coral: rgb(251, 112, 116);
 }
@@ -19,14 +19,15 @@
   display: grid;
 
   grid-template-areas:
-    "header header header"
-    "nav content aside"
-    "footer footer footer";
-  grid-template-columns: 20% 1fr 20%;
-  grid-template-rows: auto 1fr 200px;
+    "header header "
+    "nav content ";
+    
+  grid-template-columns: 20% 1fr ;
+  grid-template-rows: auto 1fr ;
   grid-gap: 10px;
   height: 100vh;
 }
+
 header {
   grid-area: header;
 }
@@ -40,6 +41,17 @@ body {
 nav {
   grid-area: nav;
   margin-left: 0.5rem;
+  margin-top: 180px;
+}
+
+.nav-text {
+  font-family: 'Londrina Outline', cursive;
+  font-size: 20px;
+  color: var(--darkblue)
+}
+
+a {
+  text-decoration: none;
 }
 
 main {
@@ -48,17 +60,26 @@ main {
 
 .aside {
   grid-area: aside;
-  margin-right: 0.5rem;
+  margin-right: 15rem;
+  margin-top: 8rem;
   
 }
 
 .new-form {
   display: grid;
-  grid-template-columns: [labels] auto [controls] 1fr;
+  grid-template-columns: [labels] 1fr [controls] auto;
   grid-auto-flow: row;
-  grid-gap: .3em;
+  grid-gap: .6em;
   padding: .1em;
 }
+/* .new-form > input,
+.new-form > textarea,
+.new-form > button {
+  grid-column: controls;
+  grid-row: auto;
+  border: none;
+  padding: .2em;
+} */
 
 .logo {
   font-family: 'Londrina Outline', cursive;
