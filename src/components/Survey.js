@@ -1,7 +1,14 @@
-function Survey (props) {
+function Survey({ survey, answerOptions }) { // { survey, handleDelete, handleUpdate}
+
+    // function toggleForm() {
+    //     setEditFormVisible(!editFormVisible)
+    // }
+
+    // const [editFormVisible, setEditFormVisible] = useState(false)
+
     return (
-        <div>
-            <h1>Survey</h1>
+        <div className="survey">
+            <h3>{survey.survey_question_text}</h3>
         </div>
     )
 }
