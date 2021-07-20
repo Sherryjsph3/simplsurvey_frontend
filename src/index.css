@@ -72,14 +72,14 @@ main {
   grid-gap: .6em;
   padding: .1em;
 }
-/* .new-form > input,
+.new-form > input,
 .new-form > textarea,
 .new-form > button {
   grid-column: controls;
   grid-row: auto;
   border: none;
   padding: .2em;
-} */
+}
 
 .logo {
   font-family: 'Londrina Outline', cursive;
