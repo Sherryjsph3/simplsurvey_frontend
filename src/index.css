@@ -1,6 +1,8 @@
 /*==========Fonts==========*/
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&family=Londrina+Solid&family=Montserrat:wght@100&display=swap');
+
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&family=Montserrat:wght@100&display=swap');
 
 /*==========Variables==========*/
@@ -40,10 +42,12 @@ header {
   grid-area: header;
 }
 .logo {
-  font-family: 'Londrina Outline', cursive;
+  font-family: 'Londrina Solid';
   font-weight: lighter;
   font-size: 80px;
-  color: var(--darkblue)
+  color: var(--darkblue);
+  text-align: left;
+  margin: 10px
 }
 
 /*==========Nav==========*/
@@ -54,7 +58,7 @@ nav {
 }
 
 .nav-text {
-  font-family: 'Londrina Outline', cursive;
+  font-family: 'Londrina Solid';
   font-size: 35px;
   color: var(--darkblue);
   margin:20px
@@ -74,59 +78,100 @@ main {
 /*==========Form==========*/
 .aside {
   grid-area: aside;
-  margin-right: 15rem;
+  margin-right: 28rem;
   margin-top: 8rem;
   
 }
 .new-form {
   display: grid;
-  grid-template-columns: [labels] 1fr [controls] auto;
+  grid-template-columns: [labels] auto [controls] 5fr;
   grid-auto-flow: row;
-  grid-gap: .6em;
-  padding: .1em;
-}
+  grid-gap: .8em;
+  padding: .3em;
+  border-radius: 8px;
+} 
+
 .new-form > input,
 .new-form > textarea,
 .new-form > button {
   grid-column: controls;
   grid-row: auto;
-  border: none;
-  padding: .2em;
+  /* border: none; */
+  padding: .8em;
+  
+}
+
+.nw-sur {
+  border-radius: 5px;
+  border: 1.2px solid var(--darkblue);
+  background: transparent;
+}
+
+.nw-sur::placeholder {
+  color: var(--darkblue);
+}
+
+.form-head {
+  font-family: 'Londrina Solid';
+  color: var(--darkblue);
+  margin-top: 80px;
+  font-size: 50px;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-position: under; 
+
 }
 
 /*==========Categories==========*/
 .category-head {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Londrina Solid';
   color: var(--darkblue);
-  font-weight: bolder;
+  margin-top: 80px;
+  font-size: 50px;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-position: under; 
+
 }
 
-.categories {
-  font-family: 'Montserrat', sans-serif;
+/* .category-head2 {
+  font-family: 'Montserrat';
   color: var(--darkblue);
-  
+  font-weight: bolder;
+  margin: 150px;
+} */
+
+.categories {
+  font-family: 'Montserrat';
+  font-weight: bolder;
+  color: var(--darkblue);
   flex-direction: column;
   justify-content: space-evenly;
   margin: 20px;
   border-radius: 25px;
-  background-color: var(--mustard);
+  background-color: rgb(252, 203, 125, 0.8);
+  /* border: var(--mustard) solid 2px; */
+  /* box-shadow: 0 8px 16px 0 rgba(42, 45, 97,0.2); */
   width: 175px;
-  height: 145px;
-
+  height: 160px;
 }
 
 img {
-  margin: auto;
+  margin-top: 8px;
   padding: 5px;
+  border-radius: 12px;
+  box-shadow: 3px 3px 3px rgba(42, 45, 97,0.5);
 }
 
 .frame {
   display: flex;
   flex-wrap: wrap;
   max-width: 800px;
-  margin-top: 50px;
-  margin-left: 80px
+  margin-top: 100px;
+  margin-left: 100px
 }
+
 .categories:hover {
   box-shadow: 0 8px 16px 0 rgba(42, 45, 97,0.2);
 }
+
