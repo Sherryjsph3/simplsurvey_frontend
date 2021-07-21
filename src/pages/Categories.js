@@ -20,32 +20,32 @@ function Categories({surveys, history, setSelectedCategory, category}) {
             <div className='categories' onClick={() => {setSelectedCategory('food');
              handleRedirect(); }  
              }><h3>Food</h3>
-            <img src='/imgs/brooke-lark-nTZOILVZuOg-unsplash.jpg' alt='food' style={{ width:130 }}/></div>
+            <img className='category-img' src='/imgs/brooke-lark-nTZOILVZuOg-unsplash.jpg' alt='food' style={{ width:130 }}/></div>
 
             <div className='categories' onClick={() => {setSelectedCategory('pop culture');
              handleRedirect(); }  
              }><h3>Pop Culture</h3>
-            <img src='/imgs/mike-von-aaWaG-raMNw-unsplash.jpg' alt='pop_culture' style={{ width:130 }}/></div>
+            <img className='category-img' src='/imgs/mike-von-aaWaG-raMNw-unsplash.jpg' alt='pop_culture' style={{ width:130 }}/></div>
 
             <div className='categories' onClick={() => {setSelectedCategory('travel');
              handleRedirect(); }  
              }><h3>Travel</h3>
-            <img src='/imgs/annie-spratt-qyAka7W5uMY-unsplash.jpg' alt='travel' style={{ width:130 }}/></div>
+            <img className='category-img' src='/imgs/annie-spratt-qyAka7W5uMY-unsplash.jpg' alt='travel' style={{ width:130 }}/></div>
 
             <div className='categories' onClick={() => {setSelectedCategory('art');
              handleRedirect(); }  
              }><h3>Art</h3>
-            <img src='/imgs/rhondak-native-florida-folk-artist-_Yc7OtfFn-0-unsplash.jpg' alt='art' style={{ width:120 }}/></div>
+            <img className='category-img' src='/imgs/rhondak-native-florida-folk-artist-_Yc7OtfFn-0-unsplash.jpg' alt='art' style={{ width:120 }}/></div>
 
             <div className='categories' onClick={() => {setSelectedCategory('sports');
              handleRedirect(); }  
              }><h3>Sports</h3>
-            <img src='/imgs/jordan-rowland-Q64WE8Xo9bs-unsplash.jpg' alt='sports' style={{ width:130 }}/></div>
+            <img className='category-img' src='/imgs/jordan-rowland-Q64WE8Xo9bs-unsplash.jpg' alt='sports' style={{ width:130 }}/></div>
 
             <div className='categories' onClick={() => {setSelectedCategory('misc');
              handleRedirect(); }  
              }><h3>Misc</h3>
-            <img src='/imgs/jon-tyson-hhq1Lxtuwd8-unsplash.jpg' alt='misc' style={{ width:110 }}/></div>
+            <img className='category-img' src='/imgs/jon-tyson-hhq1Lxtuwd8-unsplash.jpg' alt='misc' style={{ width:110 }}/></div>
             </div>
         
         </>
