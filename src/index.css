@@ -27,7 +27,6 @@ body {
 
 .container {
   display: grid;
-
   grid-template-areas:
     "header header "
     "nav content ";
@@ -96,7 +95,6 @@ main {
 .new-form > button {
   grid-column: controls;
   grid-row: auto;
-  /* border: none; */
   padding: 1em;
 }
 
@@ -155,7 +153,6 @@ main {
   text-decoration: underline;
   text-decoration-thickness: 3px;
   text-underline-position: under; 
-
 }
 
 .categories {
@@ -168,13 +165,15 @@ main {
   border-radius: 25px;
   background-color: rgb(252, 203, 125, 0.8);
   width: 175px;
-  height: 160px;
+  height: 170px;
+  border:3px solid var(--darkblue);
 }
 
 .category-img {
   margin-top: 8px;
-  padding: 5px;
+  /* padding: 5px; */
   border-radius: 12px;
+  /* border: 2px solid white; */
   box-shadow: 3px 3px 3px rgba(42, 45, 97,0.5);
 }
 
