@@ -1,5 +1,5 @@
 // import {useState} from "react";
-import {Link} from 'react-router-dom'
+// import {Link} from 'react-router-dom'
 
 function Categories({surveys, history, setSelectedCategory, category}) {
 
@@ -13,11 +13,10 @@ function Categories({surveys, history, setSelectedCategory, category}) {
        
             <h1 className='category-head'>Categories</h1>
 
-            {/* <h2 className='category-head2'> Select a Category: </h2>   */}
 
             <div className='frame'>
 
-<
+
             <div className='categories' onClick={() => {setSelectedCategory('food');
              handleRedirect(); }  
              }><h3>Food</h3>

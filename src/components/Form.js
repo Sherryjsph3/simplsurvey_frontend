@@ -33,6 +33,8 @@ function handleSubmit(event) {
 }
 
 return (
+    <>
+    <h1 className='form-head'>New Surveys</h1>
     <div className='aside'>
     <form className='new-form' onSubmit={handleSubmit}>
         <input
@@ -65,6 +67,7 @@ return (
          <input type="submit" value={props.survey ? "Edit" : "Add"} />
     </form>
     </div>
+    </>
 );
 }
 
