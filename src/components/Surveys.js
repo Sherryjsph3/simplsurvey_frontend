@@ -16,5 +16,5 @@ function Surveys({ surveys, answerOptions }) {
         </div>
     );
 }
-git 
+
 export default Surveys;

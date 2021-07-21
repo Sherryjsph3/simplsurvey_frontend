@@ -9,6 +9,7 @@ function Survey({ survey, answerOptions }) { // { survey, handleDelete, handleUp
     return (
         <div className="survey">
             <h3>{survey.survey_question_text}</h3>
+            <h3>{survey.survey_question_text}</h3>
             <div className="pollSelectionArea">
                 <div className="selectYourOptionText">Select your choice</div>
                 <form class="pollForm">

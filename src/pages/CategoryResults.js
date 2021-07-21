@@ -1,7 +1,7 @@
-function CategoryResults (props) {
+function CategoryResults ({category}) {
     return (
         <div>
-            <h1>CategoryResults</h1>
+            <h1>{category}</h1>
         </div>
     )
 }
