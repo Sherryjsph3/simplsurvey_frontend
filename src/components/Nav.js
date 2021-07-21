@@ -60,7 +60,8 @@ return (
         }
     
     </div>
-    <Link className="nav-text" to='/'>Home</Link>
+    
+    <Link to='/'><p className="nav-text">Home</p></Link>
     <Link to='/categories'><p className="nav-text">Categories</p></Link>
     <Link to='/new_survey'><p className="nav-text">New Survey</p></Link>
     <Link to='/my_surveys'><p className="nav-text">My Surveys</p></Link>
