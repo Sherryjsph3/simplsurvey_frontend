@@ -1,4 +1,4 @@
-function CategoryResults ({category}) {
+function CategoryResults ({category, surveys}) {
     console.log(category);
     return (
         <div>
