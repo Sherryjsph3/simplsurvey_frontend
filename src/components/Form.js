@@ -64,7 +64,7 @@ return (
         value={formState.survey_question_text}
         id='survey_question_text'
         />
-         <input type="submit" value={props.survey ? "Edit" : "Add"} />
+         <input className='nw-sub' type="submit" value={props.survey ? "Edit" : "Add a New Survey"} />
     </form>
     </div>
     </>
