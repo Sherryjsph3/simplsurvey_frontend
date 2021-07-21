@@ -98,7 +98,6 @@ main {
   grid-row: auto;
   /* border: none; */
   padding: 1em;
-  
 }
 
 .nw-sur {
@@ -139,6 +138,14 @@ main {
   text-underline-position: under; 
 }
 
+.ques-img {
+  margin-right: 20px;
+  transform: rotate(-20deg);
+  margin-right: -350px;
+  margin-top: 100px;
+ 
+}
+
 /*==========Categories==========*/
 .category-head {
   font-family: 'Londrina Solid';
@@ -164,7 +171,7 @@ main {
   height: 160px;
 }
 
-img {
+.category-img {
   margin-top: 8px;
   padding: 5px;
   border-radius: 12px;
