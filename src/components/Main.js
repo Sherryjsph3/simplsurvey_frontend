@@ -24,6 +24,7 @@ function Main({ surveys }) {
                         path='/categories'
                         render={(rp) => (
                             <Categories
+                                category={selectedCategory}
                                 setSelectedCategory={setSelectedCategory}
                                 surveys={surveys}
                                 {...rp}
