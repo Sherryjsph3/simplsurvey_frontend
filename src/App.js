@@ -86,6 +86,9 @@ function App() {
         />
         <Main
           surveys={surveyState.surveys}
+          handleCreateSurvey={handleCreateSurvey}
+          handleDeleteSurvey={handleDeleteSurvey}
+          handleUpdateSurvey={handleUpdateSurvey}
         />
 
       </div>
