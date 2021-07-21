@@ -69,7 +69,7 @@ return (
     </form>
     </div>
 
-    <img className='ques-img' src='https://i.imgur.com/IEJy46Y.png' alt='ques-img' style={{ width:350 }}/>
+    <img className='ques-img' src='https://i.imgur.com/5Iy2Z3X.png' alt='ques-img' style={{ width:350 }}/>
 
     </>
 );
