@@ -8,7 +8,7 @@ import MyAnswers from '../pages/MyAnswers';
 import Surveys from './Surveys.js';
 import Survey from './Survey.js';
 
-function Main({ surveys, answerOptions }) {
+function Main({ surveys }) {
     const [selectedCategory, setSelectedCategory] = useState(null)
 
     return (
@@ -18,7 +18,6 @@ function Main({ surveys, answerOptions }) {
                     <Route exact path='/'>
                         <Surveys
                             surveys={surveys}
-                            answerOptions={answerOptions}
                         />
                     </Route>
                     <Route
