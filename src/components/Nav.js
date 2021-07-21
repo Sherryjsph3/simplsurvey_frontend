@@ -57,28 +57,34 @@ return (
         
     <div className="login-box">
         {
-        user ?   
-        <div
-        onClick={() => handleLogout()}
-        >
+        user ? 
+        <div>
+            <div 
+             onClick={() => handleLogout()}
+            >
             <p className="nav-text">Logout</p>
+            </div>
+            <Link to='/'><p className="nav-text">Home</p></Link>
+        <Link to='/categories'><p className="nav-text">Categories</p></Link>
+        <Link to='/new_survey'><p className="nav-text">New Survey</p></Link>
+        <Link to='/my_surveys'><p className="nav-text">My Surveys</p></Link>
+        <Link to='/my_answers'><p className="nav-text">My Answers</p></Link>
         </div> 
+        
         :     
-        <div
-        onClick={() => login()}
-        >
+        <div>
+            <div
+            onClick={() => login()}
+            >
             <p className="nav-text">Login</p>
+            </div>
+            <Link to='/'><p className="nav-text">Home</p></Link>
+        <Link to='/categories'><p className="nav-text">Categories</p></Link>
         </div>
         }
     
     </div>
-    
-    <Link to='/'><p className="nav-text">Home</p></Link>
-    <Link to='/categories'><p className="nav-text">Categories</p></Link>
-    <Link to='/new_survey'><p className="nav-text">New Survey</p></Link>
-    <Link to='/my_surveys'><p className="nav-text">My Surveys</p></Link>
-    <Link to='/my_answers'><p className="nav-text">My Answers</p></Link>
-  
+ 
 </nav>
  
   )
