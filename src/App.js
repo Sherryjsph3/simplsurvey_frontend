@@ -36,9 +36,10 @@ function App() {
   }, []);
 
   useEffect(() => {
-    async function getAnswerOptions() {
+    async function getAnswerOptions(answerOptions) {
       try {
-        const answerOptions = await fetch('http://localhost:3000/answer_options').then(response => response.json())
+        const answerOptions = await fetch('http://localhost:3000/survey_questions/{}').then(response => response.json())
+        console.log(answerOptions)
         setAnswerOptionsState({ answerOptions })
       } catch (error) {
         console.log(error)
