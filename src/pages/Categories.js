@@ -13,11 +13,11 @@ function Categories({surveys, history, setSelectedCategory}) {
        
             <h1 className='category-head'>Categories</h1>
 
-            <h2 className='category-head'> Select Category </h2>  
+            {/* <h2 className='category-head2'> Select a Category: </h2>   */}
 
             <div className='frame'>
 
-            <Link className='categories' onClick={setSelectedCategory('food')} to='/category'><h3>Food</h3>
+            <Link className='categories' onClick={setSelectedCategory('food')} to='/category' ><h3>Food</h3>
             <img src='/imgs/brooke-lark-nTZOILVZuOg-unsplash.jpg' alt='food' style={{ width:130 }}/></Link>
 
             <Link className='categories' onClick={setSelectedCategory('pop culture')} to='/category'><h3>Pop Culture</h3>
@@ -34,6 +34,7 @@ function Categories({surveys, history, setSelectedCategory}) {
 
             <Link className='categories' onClick={setSelectedCategory('misc')} to='/category'><h3>Misc</h3>
             <img src='/imgs/jon-tyson-hhq1Lxtuwd8-unsplash.jpg' alt='misc' style={{ width:110 }}/></Link>
+
             </div>
         
         </>

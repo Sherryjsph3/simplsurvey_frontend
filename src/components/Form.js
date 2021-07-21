@@ -36,7 +36,7 @@ return (
     <div className='aside'>
     <form className='new-form' onSubmit={handleSubmit}>
         <input
-        className='nw-form'
+        className='nw-sur'
         handleChange={handleChange}
         name='user_id'
         placeholder='user_id'
@@ -45,7 +45,7 @@ return (
         id='user_id'
         />
         <input
-        className='nw-form'
+        className='nw-sur'
         handleChange={handleChange}
         name='categories'
         placeholder='categories'
@@ -54,7 +54,7 @@ return (
         id='categories'
         />
         <input
-        className='nw-form'
+        className='nw-sur'
         handleChange={handleChange}
         name='survey_question_text'
         placeholder='survey_question_text'
