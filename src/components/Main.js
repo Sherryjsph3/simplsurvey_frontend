@@ -35,7 +35,7 @@ function Main({ surveys, handleCreateSurvey, handleDeleteSurvey, handleUpdateSur
                     />
                     <Route path='/category'>
                         <CategoryResults
-                            surveys={getSurveys}
+                            surveys={surveys}
                             category={selectedCategory}
                         />
                     </Route>
