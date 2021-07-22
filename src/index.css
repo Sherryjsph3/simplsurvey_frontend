@@ -247,11 +247,10 @@ select {
   text-align: center;
 }
 
-
 /*==========Categories==========*/
 .category-head {
   font-family: 'Londrina Solid';
-  color: var(--coral);
+  color: var(--darkblue);
   margin-top: 80px;
   font-size: 50px;
   text-decoration: underline;
@@ -276,7 +275,7 @@ select {
 .category-img {
   margin-top: 8px;
   border-radius: 12px;
-  box-shadow: 3px 3px 3px rgba(42, 45, 97,0.5);
+  box-shadow: 3px 3px 3px rgba(42, 45, 97,0.8);
 }
 
 .frame {
