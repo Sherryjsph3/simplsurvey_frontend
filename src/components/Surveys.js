@@ -5,12 +5,12 @@ function Surveys({ surveys }) {
         <div>
             {surveys.map(survey =>
 
-                <>
+                <div>
                     <Survey
                         key={survey.id}
                         survey={survey}
                     />
-                </>
+                </div>
             )
             }
         </div >
