@@ -49,6 +49,7 @@ function App() {
     } catch (error) {
       console.log(error)
     }
+    getSurveys();
   }
 
   async function handleDeleteSurvey(surveyId) {
@@ -56,8 +57,7 @@ function App() {
       const surveys = await fetch(`http://localhost:3000/survey_questions/${surveyId}`, {
         method: 'DELETE',
       }).then(res => res.json());
-
-      setSurveyState({ surveys });
+      getSurveys();
 
     } catch (error) {
       console.log(error)
@@ -78,6 +78,7 @@ function App() {
     } catch (error) {
       console.log(error)
     }
+    getSurveys();
   }
 
   return (

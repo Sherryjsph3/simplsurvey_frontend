@@ -1,22 +1,27 @@
 import { useEffect,useState } from "react";
-import Surveys from "../components/Surveys";
+import UserSurveys from "../components/UserSurveys";
 
 function MySurveys ({existingUser, handleUpdateSurvey, handleDeleteSurvey, surveys}) {
     const [surveysByUserState, setSurveysByUserState] = useState([]);
 
     useEffect(() => {
-        function filterSurveys() {
-            const surveysByUser = surveys.filter(function(survey) {
-                return survey.user_id === existingUser
-            })
-            setSurveysByUserState(surveysByUser);
-            }
-            filterSurveys();
-    }, []);
+        filterSurveys();
+  
+    },[surveys]);
+
+    function filterSurveys() {
+        const surveysByUser = surveys.filter(function(survey) {
+            return survey.user_id === existingUser
+        })
+        setSurveysByUserState(surveysByUser);
+        }
     return (
         <div>
             <h1 className='mySurveys'>Mysurveys</h1>
-            <Surveys 
+            <UserSurveys 
+            filterSurveys={filterSurveys}
+            handleDeleteSurvey={handleDeleteSurvey}
+            handleUpdateSurvey={handleUpdateSurvey}
             surveys={surveysByUserState}
             />
             
