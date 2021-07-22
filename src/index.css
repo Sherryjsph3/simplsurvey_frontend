@@ -226,3 +226,22 @@ main {
   box-shadow: 0 8px 16px 0 rgba(42, 45, 97,0.2);
 }
 
+/*==========Categories==========*/
+.categoryResults {
+  font-family: 'Londrina Solid';
+  color: var(--darkblue);
+  margin-top: 80px;
+  font-size: 50px;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-position: under; 
+}
+
+.mySurveys {
+
+}
+
+myAnswers {
+  
+}
+

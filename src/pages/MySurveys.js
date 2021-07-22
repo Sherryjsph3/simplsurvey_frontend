@@ -4,7 +4,7 @@
 function MySurveys (props) {
     return (
         <div>
-            <h1>Mysurveys</h1>
+            <h1 className='mySurveys'>Mysurveys</h1>
         </div>
     )
 }
