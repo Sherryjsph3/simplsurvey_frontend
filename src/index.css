@@ -138,11 +138,14 @@ main {
   border-radius: 8px;
   border: 1.2px solid var(--coral);
   background: transparent;
+  cursor: pointer;
+  color: var(--coral);
 }
 
 .nw-sur:focus {
   outline: 1px solid transparent;
   border: 1px solid var(--mustard);
+  color: var(--coral);
 }
 
 .nw-sur::placeholder {
@@ -155,7 +158,7 @@ main {
     box-shadow: 2px 2px 2px rgb(251, 112, 116, 0.70);
     font-family: 'Montserrat';  
     font-size: 13px;
-    color:var(--darkblue);
+    color:var(--coral);
     border: 0px;
     transition: 0.2s ease-in-out;
     border-radius: 10px;
@@ -163,8 +166,9 @@ main {
 
 .nw-sub:hover {
   cursor: pointer;
-  background:rgb(251, 112, 116, 0.70);
+  background:rgb(251, 112, 116, 0.80);
   box-shadow: 3px 3px 3px rgb(252, 203, 125, 0.70);
+  color: var(--mustard)
 }
 
 .form-head {
@@ -183,10 +187,44 @@ main {
   margin-top: 100px;
 }
 
+select {
+  /* appearance: none; */
+  outline: 0;
+  color: var(--coral);
+  cursor: pointer;
+  border:1.2px solid var(--coral);
+  border-radius:3px;
+  background-color: transparent;
+  font-family: 'Montserrat';
+  font-size: 12px;
+  padding: 1em;
+  border-radius: 8px;
+}
+
+.answerOption {
+  background: rgb(251, 112, 116, 0.80);
+  box-shadow: 2px 2px 2px rgb(252, 203, 125, 0.70);
+  font-family: 'Montserrat';  
+  font-size: 13px;
+  color:var(--mustard);
+  border: 0px;
+  transition: 0.2s ease-in-out;
+  border-radius: 10px;
+  grid-column: controls;
+  padding: 1em;
+  
+ }
+ .answerOption:hover {
+  cursor: pointer;
+  background:var(--mustard);
+  box-shadow: 3px 3px 3px rgb(251, 112, 116, 0.70);
+  color:var(--coral);
+} 
+
 /*==========Categories==========*/
 .category-head {
   font-family: 'Londrina Solid';
-  color: var(--darkblue);
+  color: var(--coral);
   margin-top: 80px;
   font-size: 50px;
   text-decoration: underline;
@@ -238,10 +276,22 @@ main {
 }
 
 .mySurveys {
-
+  font-family: 'Londrina Solid';
+  color: var(--darkblue);
+  margin-top: 80px;
+  font-size: 50px;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-position: under;
 }
 
-myAnswers {
-  
+.myAnswers {
+  font-family: 'Londrina Solid';
+  color: var(--darkblue);
+  margin-top: 80px;
+  font-size: 50px;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-position: under;
 }
 
