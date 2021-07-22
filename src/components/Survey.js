@@ -28,17 +28,20 @@ function Survey({ survey }) {
     //     }
     //     createChosenAnswer();
     // }
+    
     const surveyObj = survey;
 
     const allowedQuestionKeys = ["answer_options"];
 
-    const filteredOptions = Object.fromEntries(
+    const filteredOptions = _.toArray(
         Object.entries(surveyObj).filter(
             ([key, val]) => allowedQuestionKeys.includes(key, val)
         )
     );
 
     console.log(filteredOptions);
+    // console.log(_.filter(filteredOptions: chosen_answers: 'id' }));
+
 
     // const allowedOptionsKeys = ["chosen_answers"];
 
