@@ -48,8 +48,11 @@ function Main({ surveys, handleCreateSurvey, handleDeleteSurvey, handleUpdateSur
                     </Route>
                     <Route path='/my_surveys'>
                         <MySurveys 
+                        existingUser={existingUser}
+                        user={user}
                         handleDeleteSurvey={handleDeleteSurvey}
                         handleUpdateSurvey={handleUpdateSurvey}
+                        surveys={surveys}
                         />
                     </Route>
                     <Route path='/my_answers'>
