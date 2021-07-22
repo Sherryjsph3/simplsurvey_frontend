@@ -38,7 +38,7 @@ return (
     <div className='aside'>
     <form className='new-form' onSubmit={handleSubmit}>
         <input
-        className='nw-sur'
+        className='nw-sur nw-surtwo'
         onChange={handleChange}
         name='user_id'
         type='text'
