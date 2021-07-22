@@ -1,19 +1,23 @@
 import { useState, useEffect } from "react";
 
+import AnswerOptionForm from './AnswerOptionForm';
 
 function Form(props) {
+    const [answerOptions, setAnswerOptions] = useState([])
     const [formState, setFormState] = useState({
-        user_id: '',
-        categories: '',
-        survey_question_text: ''
+        user_id: 0,
+        categories: 'food',
+        survey_question_text: '',
     });
 
 
 useEffect(() => {
-    if(props.survey) {
-        setFormState(props.survey)
-    }
-}, [props.survey]);
+    setFormState(prevState => ({
+        ...prevState,
+        user_id: props.existingUser
+    }))
+    
+},[props.existingUser]);
 
 function handleChange(event) {
     setFormState(prevState => ({
@@ -23,42 +27,40 @@ function handleChange(event) {
 }
 
 function handleSubmit(event) {
-    event.preventDefault();
-    if(props.survey) {
-        props.handleUpdate(formState)
-        props.toggleForm()
-    } else {
-        props.handleAdd(formState);
-    }
+    props.handleCreateSurvey(formState);
 }
+
 
 return (
     <>
-    
+
     <h1 className='form-head'>New Surveys</h1>
     <div className='aside'>
     <form className='new-form' onSubmit={handleSubmit}>
         <input
         className='nw-sur'
-        handleChange={handleChange}
+        onChange={handleChange}
         name='user_id'
-        placeholder='user_id'
         type='text'
-        value={formState.user_id}
+        value={props.existingUser}
         id='user_id'
         />
+        <lable for="category">Choose a Category</lable>
+        <select 
+        id="categories" 
+        name="categories"
+        onChange={handleChange}
+        >
+            <option value="food">food</option>
+            <option value="pop culture">pop culture</option>
+            <option value="travel">travel</option>
+            <option value="art">art</option>
+            <option value="sports">sports</option>
+            <option value="misc">misc</option>
+        </select>
         <input
         className='nw-sur'
-        handleChange={handleChange}
-        name='categories'
-        placeholder='categories'
-        type='text'
-        value={formState.categories}
-        id='categories'
-        />
-        <input
-        className='nw-sur'
-        handleChange={handleChange}
+        onChange={handleChange}
         name='survey_question_text'
         placeholder='survey_question_text'
         type='text'
@@ -67,7 +69,27 @@ return (
         />
          <input className='nw-sub' type="submit" value={props.survey ? "Edit" : "Add a New Survey"} />
     </form>
+    {
+    
+    answerOptions.map(index => 
+      <div>
+          <AnswerOptionForm 
+              key={index}
+
+          />
+      </div>
+      )
+      
+  }
+    <button onClick={() => setAnswerOptions(answerOptions.concat('option'))}> 
+     Add answer option
+     </button>
     </div>
+
+    
+
+
+
 
     <img className='ques-img' src='https://i.imgur.com/5Iy2Z3X.png' alt='ques-img' style={{ width:350 }}/>
 

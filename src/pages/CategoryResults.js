@@ -16,7 +16,7 @@ function CategoryResults ({category, surveys}) {
     
     return (
         <div>
-            <h1>{category}</h1>
+            <h1 className='categoryResults'>{category}</h1>
             <Surveys 
             surveys={surveysByCategory}
             />

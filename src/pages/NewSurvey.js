@@ -1,11 +1,14 @@
-import Form from "../components/Form";
 
-function NewSurvey (props) {
+import Form from "../components/Form";
+function NewSurvey ({user, existingUser, handleCreateSurvey}) {
     return (
-        <>
-        <h1>New Survey</h1>
-        <Form />
-        </>
+        <div>
+            <Form
+            handleCreateSurvey={handleCreateSurvey}
+            existingUser={existingUser}
+            user={user}
+            />
+        </div>
     )
 }
 

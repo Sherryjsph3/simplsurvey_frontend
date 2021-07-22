@@ -28,7 +28,7 @@ function Survey({ survey }) {
     //     }
     //     createChosenAnswer();
     // }
-    
+
     const surveyObj = survey;
 
     const allowedQuestionKeys = ["answer_options"];
@@ -60,8 +60,9 @@ function Survey({ survey }) {
     }
 
     return (
+
         <div className="survey">
-            <h3>{survey.survey_question_text}</h3>
+            <h3 className='ques-h3'>{survey.survey_question_text}</h3>
             <div className="pollSelectionArea">
                 <div className="selectYourOptionText">Select your choice:</div>
                 <form onSubmit={handleSubmitAnswer} className="surveyForm">
@@ -87,7 +88,8 @@ function Survey({ survey }) {
                     </div>
                 </form>
             </div>
-        </div >
+        </div>
+
     )
 }
 
