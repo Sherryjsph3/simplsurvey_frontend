@@ -45,12 +45,15 @@ return (
         value={props.existingUser}
         id='user_id'
         />
-        <lable for="category">Choose a Category</lable>
+      
+        <label className='select' for="category"></label>
+        
         <select 
         id="categories" 
         name="categories"
         onChange={handleChange}
         >
+            <option value="">choose a category:</option>
             <option value="food">food</option>
             <option value="pop culture">pop culture</option>
             <option value="travel">travel</option>
@@ -58,6 +61,7 @@ return (
             <option value="sports">sports</option>
             <option value="misc">misc</option>
         </select>
+        
         <input
         className='nw-sur'
         onChange={handleChange}
@@ -81,8 +85,8 @@ return (
       )
       
   }
-    <button onClick={() => setAnswerOptions(answerOptions.concat('option'))}> 
-     Add answer option
+    <button className='answerOption' onClick={() => setAnswerOptions(answerOptions.concat('option'))}> 
+     Add Answer Option
      </button>
     </div>
 
@@ -93,6 +97,7 @@ return (
 
     <img className='ques-img' src='https://i.imgur.com/5Iy2Z3X.png' alt='ques-img' style={{ width:350 }}/>
 
+    
     </>
 );
 }
