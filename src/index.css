@@ -22,7 +22,7 @@ body {
   text-align: center;
   background: url(https://i.imgur.com/UGohCPf.jpg);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 110%;  
 }
 
 .container {
@@ -73,6 +73,42 @@ a {
 main {
   grid-area: content;
 }
+
+/*==========Home==========*/
+.survey {
+  color: var(--darkblue);
+  margin: 12px;
+}
+
+.ques-h3 {
+  font-family:'Londrina Solid';
+  font-weight: lighter;
+  margin: 3px
+}
+
+.selectYourOptionText {
+  font-weight: lighter; 
+  font-family:'Londrina Solid';
+}
+
+.buttonText {
+  color: var(--darkblue);
+  border: none;
+  border-radius: 10px;
+  font-family: 'Montserrat'; 
+  font-weight: bolder;
+  font-size: 12px;
+}
+
+.pollButton {
+  /* border: none; */
+  border: 1px solid var(--darkblue);
+  background: transparent;
+  border-radius: 10px;
+  margin:3px;
+  box-shadow: 1.5px 1.5px 1.5px rgba(42, 45, 97,0.5);
+}
+
 
 /*==========Form==========*/
 .aside {
@@ -145,7 +181,6 @@ main {
   margin-right: 20px;
   margin-right: -350px;
   margin-top: 100px;
- 
 }
 
 /*==========Categories==========*/
@@ -175,9 +210,7 @@ main {
 
 .category-img {
   margin-top: 8px;
-  /* padding: 5px; */
   border-radius: 12px;
-  /* border: 2px solid white; */
   box-shadow: 3px 3px 3px rgba(42, 45, 97,0.5);
 }
 
