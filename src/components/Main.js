@@ -18,6 +18,7 @@ function Main({ surveys, handleCreateSurvey, handleDeleteSurvey, handleUpdateSur
                 <Switch>
                     <Route exact path='/'>
                         <Surveys
+                            existingUser={existingUser}
                             surveys={surveys}
                         />
                     </Route>
