@@ -7,8 +7,9 @@ import MySurveys from '../pages/MySurveys';
 import MyAnswers from '../pages/MyAnswers';
 import Surveys from './Surveys.js';
 import Survey from './Survey.js';
+import NewSurvey from "../pages/NewSurvey.js";
 
-function Main({ surveys }) {
+function Main({ surveys, handleCreateSurvey, handleDeleteSurvey, handleUpdateSurvey, getSurveys }) {
     const [selectedCategory, setSelectedCategory] = useState(null)
 
     return (
@@ -24,6 +25,7 @@ function Main({ surveys }) {
                         path='/categories'
                         render={(rp) => (
                             <Categories
+                                category={selectedCategory}
                                 setSelectedCategory={setSelectedCategory}
                                 surveys={surveys}
                                 {...rp}
@@ -33,14 +35,20 @@ function Main({ surveys }) {
                     />
                     <Route path='/category'>
                         <CategoryResults
+                            surveys={surveys}
                             category={selectedCategory}
                         />
                     </Route>
                     <Route path='/new_survey'>
-                        <Form />
+                        <NewSurvey
+                        handleCreateSurvey={handleCreateSurvey}
+                        />
                     </Route>
                     <Route path='/my_surveys'>
-                        <MySurveys />
+                        <MySurveys 
+                        handleDeleteSurvey={handleDeleteSurvey}
+                        handleUpdateSurvey={handleUpdateSurvey}
+                        />
                     </Route>
                     <Route path='/my_answers'>
                         <MyAnswers />

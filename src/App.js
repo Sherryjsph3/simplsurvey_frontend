@@ -17,19 +17,20 @@ function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    async function getSurveys() {
-      try {
-        const surveys = await fetch('http://localhost:3000/survey_questions').then(response => response.json())
-        setSurveyState({ surveys })
-      } catch (error) {
-        console.log(error)
-      }
-    }
     getSurveys();
     const unsubscribe = auth.onAuthStateChanged((user) => setUser(user))
     // cleanup effect
     // return unsubscribe();
   }, []);
+
+  async function getSurveys() {
+    try {
+      const surveys = await fetch('http://localhost:3000/survey_questions').then(response => response.json())
+      setSurveyState({ surveys })
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   async function handleCreateSurvey(formInputs) {
     try {
@@ -47,6 +48,26 @@ function App() {
       console.log(error)
     }
   }
+
+  // useEffect(() => {
+  //   async function handleCreateChosenAnswerOptions(chosenAnswer) {
+  //     try {
+  //       const options = await fetch('http://localhost:3000/survey_questions/:survey_question_id/answer_options', {
+  //         method: 'POST',
+  //         headers: {
+  //           'Content-Type': 'Application/json'
+  //         },
+  //         body: JSON.stringify(chosenAnswer)
+  //       }).then(res => res.json())
+
+  //       setSurveyFormState(options);
+
+  //     } catch (error) {
+  //       console.log(error)
+  //     }
+  //     console.log
+  //   }
+  // }, []);
 
   async function handleDeleteSurvey(surveyId) {
     try {
@@ -86,6 +107,10 @@ function App() {
         />
         <Main
           surveys={surveyState.surveys}
+          getSurveys={getSurveys}
+          handleCreateSurvey={handleCreateSurvey}
+          handleDeleteSurvey={handleDeleteSurvey}
+          handleUpdateSurvey={handleUpdateSurvey}
         />
 
       </div>

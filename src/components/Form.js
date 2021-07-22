@@ -33,9 +33,13 @@ function handleSubmit(event) {
 }
 
 return (
+    <>
+    
+    <h1 className='form-head'>New Surveys</h1>
     <div className='aside'>
     <form className='new-form' onSubmit={handleSubmit}>
         <input
+        className='nw-sur'
         handleChange={handleChange}
         name='user_id'
         placeholder='user_id'
@@ -44,6 +48,7 @@ return (
         id='user_id'
         />
         <input
+        className='nw-sur'
         handleChange={handleChange}
         name='categories'
         placeholder='categories'
@@ -52,6 +57,7 @@ return (
         id='categories'
         />
         <input
+        className='nw-sur'
         handleChange={handleChange}
         name='survey_question_text'
         placeholder='survey_question_text'
@@ -59,9 +65,13 @@ return (
         value={formState.survey_question_text}
         id='survey_question_text'
         />
-         <input type="submit" value={props.survey ? "Edit" : "Add"} />
+         <input className='nw-sub' type="submit" value={props.survey ? "Edit" : "Add a New Survey"} />
     </form>
     </div>
+
+    <img className='ques-img' src='https://i.imgur.com/5Iy2Z3X.png' alt='ques-img' style={{ width:350 }}/>
+
+    </>
 );
 }
 
