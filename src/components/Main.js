@@ -9,7 +9,7 @@ import Surveys from './Surveys.js';
 import Survey from './Survey.js';
 import NewSurvey from "../pages/NewSurvey.js";
 
-function Main({ surveys, handleCreateSurvey, handleDeleteSurvey, handleUpdateSurvey, getSurveys }) {
+function Main({ surveys, handleCreateSurvey, handleDeleteSurvey, handleUpdateSurvey, getSurveys, existingUser, user }) {
     const [selectedCategory, setSelectedCategory] = useState(null)
 
     return (
@@ -41,6 +41,8 @@ function Main({ surveys, handleCreateSurvey, handleDeleteSurvey, handleUpdateSur
                     </Route>
                     <Route path='/new_survey'>
                         <NewSurvey
+                        existingUser={existingUser}
+                        user={user}
                         handleCreateSurvey={handleCreateSurvey}
                         />
                     </Route>
