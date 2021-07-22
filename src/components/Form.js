@@ -74,7 +74,6 @@ return (
          <input className='nw-sub' type="submit" value={props.survey ? "Edit" : "Add a New Survey"} />
     </form>
     {
-    
     answerOptions.map(index => 
       <div>
           <AnswerOptionForm 
@@ -82,19 +81,13 @@ return (
 
           />
       </div>
-      )
-      
+      )  
   }
     <button className='answerOption' onClick={() => setAnswerOptions(answerOptions.concat('option'))}> 
      Add Answer Option
      </button>
     </div>
-
     
-
-
-
-
     <img className='ques-img' src='https://i.imgur.com/5Iy2Z3X.png' alt='ques-img' style={{ width:350 }}/>
 
     
