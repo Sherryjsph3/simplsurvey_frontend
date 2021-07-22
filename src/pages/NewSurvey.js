@@ -1,11 +1,10 @@
-import Form from "../components/Form";
 
+import Form from "../components/Form";
 function NewSurvey (props) {
     return (
-        <>
-        <h1>New Survey</h1>
-        <Form />
-        </>
+        <div>
+            <Form />
+        </div>
     )
 }
 
