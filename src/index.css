@@ -214,12 +214,39 @@ select {
   padding: 1em;
   
  }
+
  .answerOption:hover {
   cursor: pointer;
   background:var(--mustard);
   box-shadow: 3px 3px 3px rgb(251, 112, 116, 0.70);
   color:var(--coral);
 } 
+
+.answerOptionForm {
+  border-radius: 8px;
+  border: 1.2px solid var(--coral);
+  background: transparent;
+  cursor: pointer;
+  color: var(--coral);
+  transition: 0.2s ease-in-out;
+  border-radius: 10px;
+  grid-column: controls;
+  padding: 1em;
+  margin: 5px
+}
+
+.answerOptionForm:focus {
+  outline: 1px solid transparent;
+  border: 1px solid var(--mustard);
+  color: var(--coral);
+}
+
+.answerOptionForm::placeholder {
+  color: var(--coral);
+  font-family: 'Montserrat';
+  text-align: center;
+}
+
 
 /*==========Categories==========*/
 .category-head {

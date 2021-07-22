@@ -3,6 +3,7 @@ function AnswerOptionForm (props) {
             <div>
                 <form>
                     <input 
+                    className='answerOptionForm'
                      name='answer_text'
                      placeholder='answer option'
                      type='text'
