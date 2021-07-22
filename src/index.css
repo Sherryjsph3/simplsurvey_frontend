@@ -153,6 +153,10 @@ main {
   font-family: 'Montserrat';
 }
 
+.nwsurtwo {
+  display: none;
+}
+
 .nw-sub {
     background: var(--mustard);
     box-shadow: 2px 2px 2px rgb(251, 112, 116, 0.70);
