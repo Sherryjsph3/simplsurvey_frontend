@@ -7,8 +7,9 @@ function Survey({ survey }) {
     // const [editFormVisible, setEditFormVisible] = useState(false)
 
     return (
+      
         <div className="survey">
-            <h3>{survey.survey_question_text}</h3>
+            <h3 className='ques-h3'>{survey.survey_question_text}</h3>
             <div className="pollSelectionArea">
                 <div className="selectYourOptionText">Select your choice:</div>
                 <form class="pollForm">
@@ -29,6 +30,7 @@ function Survey({ survey }) {
                 </form>
             </div>
         </div>
+      
     )
 }
 
