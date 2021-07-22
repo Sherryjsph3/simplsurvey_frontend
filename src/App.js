@@ -17,19 +17,20 @@ function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    async function getSurveys() {
-      try {
-        const surveys = await fetch('http://localhost:3000/survey_questions').then(response => response.json())
-        setSurveyState({ surveys })
-      } catch (error) {
-        console.log(error)
-      }
-    }
     getSurveys();
     const unsubscribe = auth.onAuthStateChanged((user) => setUser(user))
     // cleanup effect
     // return unsubscribe();
   }, []);
+
+  async function getSurveys() {
+    try {
+      const surveys = await fetch('http://localhost:3000/survey_questions').then(response => response.json())
+      setSurveyState({ surveys })
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   async function handleCreateSurvey(formInputs) {
     try {
