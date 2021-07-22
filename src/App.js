@@ -16,6 +16,8 @@ function App() {
   });
   const [user, setUser] = useState(null);
 
+  const [existingUser, setExistingUser] = useState(false);
+
   useEffect(() => {
     getSurveys();
     const unsubscribe = auth.onAuthStateChanged((user) => setUser(user))
@@ -83,9 +85,13 @@ function App() {
       <div className="container">
         <Header />
         <Nav
+          existingUser={existingUser}
+          setExistingUser={setExistingUser}
           user={user}
         />
         <Main
+          existingUser={existingUser}
+          user={user}
           surveys={surveyState.surveys}
           getSurveys={getSurveys}
           handleCreateSurvey={handleCreateSurvey}

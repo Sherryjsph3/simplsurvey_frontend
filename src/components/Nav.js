@@ -2,8 +2,8 @@ import {login, logout} from '../services/firebase';
 import { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom'
 
-function Nav ({user}) {
-    const [existingUser, setExistingUser] = useState(false);
+function Nav ({user, setExistingUser}) {
+ 
 
     async function createUser() {
         let currentUser = {
@@ -19,18 +19,19 @@ function Nav ({user}) {
                 },
                 body: JSON.stringify(currentUser)
             }).then(res => res.json())
-            setExistingUser(true);
         } catch (error) {
             console.log(error)
         }
+        checkUserExist();
     }
 
     async function checkUserExist() {
+        console.log('check');
        try {
            const users = await fetch('http://localhost:3000/users').then(res => res.json()) 
            const foundUser = users.find(u => u.google_id === user.uid)
            if (foundUser) {
-               setExistingUser(true);
+               setExistingUser(foundUser.id);
            } else if (user) {
                createUser();
            }
