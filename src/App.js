@@ -36,7 +36,7 @@ function App() {
 
   async function getSurveys() {
     try {
-      const surveys = await fetch('http://localhost:3000/survey_questions').then(response => response.json())
+      const surveys = await fetch('https://simplsurvey-api.herokuapp.com/survey_questions').then(response => response.json())
       setSurveyState({ surveys })
       if(surveyById.id !== editfocus) {
         filterSurveysById();
@@ -55,7 +55,7 @@ function App() {
 
   async function handleCreateSurvey(formInputs) {
     try {
-      const surveys = await fetch('http://localhost:3000/survey_questions', {
+      const surveys = await fetch('https://simplsurvey-api.herokuapp.com/survey_questions', {
         method: 'POST',
         headers: {
           'Content-Type': 'Application/json'
@@ -73,7 +73,7 @@ function App() {
 
   async function handleDeleteSurvey(surveyId) {
     try {
-      const surveys = await fetch(`http://localhost:3000/survey_questions/${surveyId}`, {
+      const surveys = await fetch(`https://simplsurvey-api.herokuapp.com/survey_questions/${surveyId}`, {
         method: 'DELETE',
       }).then(res => res.json());
       getSurveys();
@@ -86,7 +86,7 @@ function App() {
   async function handleUpdateSurvey(editFormInputs) {
     try {
       const { categories, survey_question_text, id } = editFormInputs;
-      const surveys = await fetch(`http://localhost:3000/survey_questions/${editfocus}`, {
+      const surveys = await fetch(`https://simplsurvey-api.herokuapp.com/survey_questions/${editfocus}`, {
         method: 'PUT',
         headers: {
           "Content-Type": "Application/json"
