@@ -31,14 +31,14 @@ function App() {
   }, []);
 
   useEffect(() => {
-   filterSurveysById();
+    filterSurveysById();
   }, [editfocus]);
 
   async function getSurveys() {
     try {
       const surveys = await fetch('http://localhost:3000/survey_questions').then(response => response.json())
       setSurveyState({ surveys })
-      if(surveyById.id !== editfocus) {
+      if (surveyById.id !== editfocus) {
         filterSurveysById();
       }
     } catch (error) {
@@ -47,8 +47,8 @@ function App() {
   }
 
   function filterSurveysById() {
-    const surveyById = surveyState.surveys.filter(function(survey) {
-        return survey.id === editfocus
+    const surveyById = surveyState.surveys.filter(function (survey) {
+      return survey.id === editfocus
     })
     setSurveyById(surveyById);
   }
@@ -110,6 +110,7 @@ function App() {
           user={user}
         />
         <Main
+          getSurveys={getSurveys}
           existingUser={existingUser}
           user={user}
           surveys={surveyState.surveys}

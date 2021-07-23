@@ -9,9 +9,9 @@ import Surveys from './Surveys.js';
 import Survey from './Survey.js';
 import NewSurvey from "../pages/NewSurvey.js";
 
-function Main({ surveys, handleCreateSurvey, handleDeleteSurvey, handleUpdateSurvey, existingUser, user, editfocus, setEditFocus, surveyById }) {
+function Main({ getSurveys, surveys, handleCreateSurvey, handleDeleteSurvey, handleUpdateSurvey, existingUser, user, editfocus, setEditFocus, surveyById }) {
     const [selectedCategory, setSelectedCategory] = useState(null)
-  
+
 
     return (
         <>
@@ -19,6 +19,7 @@ function Main({ surveys, handleCreateSurvey, handleDeleteSurvey, handleUpdateSur
                 <Switch>
                     <Route exact path='/'>
                         <Surveys
+                            getSurveys={getSurveys}
                             existingUser={existingUser}
                             surveys={surveys}
                         />
@@ -43,46 +44,46 @@ function Main({ surveys, handleCreateSurvey, handleDeleteSurvey, handleUpdateSur
                     </Route>
                     <Route path='/new_survey'>
                         <NewSurvey
-                        existingUser={existingUser}
-                        user={user}
-                        handleCreateSurvey={handleCreateSurvey}
+                            existingUser={existingUser}
+                            user={user}
+                            handleCreateSurvey={handleCreateSurvey}
                         />
                     </Route>
-                    <Route 
-                    path='/my_surveys'
-                    render={(rp) => (
-                        <MySurveys 
-                        existingUser={existingUser}
-                        user={user}
-                        handleDeleteSurvey={handleDeleteSurvey}
-                        handleUpdateSurvey={handleUpdateSurvey}
-                        surveys={surveys}
-                        setEditFocus={setEditFocus}
-                        {...rp}
-                        />
+                    <Route
+                        path='/my_surveys'
+                        render={(rp) => (
+                            <MySurveys
+                                existingUser={existingUser}
+                                user={user}
+                                handleDeleteSurvey={handleDeleteSurvey}
+                                handleUpdateSurvey={handleUpdateSurvey}
+                                surveys={surveys}
+                                setEditFocus={setEditFocus}
+                                {...rp}
+                            />
 
-                    )}
+                        )}
                     />
-                        
-                   
+
+
                     <Route path='/my_answers'>
                         <MyAnswers />
                     </Route>
-                    <Route 
-                    path='/edit_question'
-                    render={(rp) => (
+                    <Route
+                        path='/edit_question'
+                        render={(rp) => (
 
-                        <EditForm 
-                        handleUpdateSurvey={handleUpdateSurvey}
-                        editfocus={editfocus}
-                        existingUser={existingUser}
-                        surveyById={surveyById}
-                        {...rp}
+                            <EditForm
+                                handleUpdateSurvey={handleUpdateSurvey}
+                                editfocus={editfocus}
+                                existingUser={existingUser}
+                                surveyById={surveyById}
+                                {...rp}
 
-                        />
-                    )}
+                            />
+                        )}
                     />
-                    
+
                 </Switch>
             </main>
         </>
