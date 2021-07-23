@@ -1,16 +1,19 @@
 import Survey from "./Survey";
 
-function Surveys ({surveys}) {
+function Surveys({ surveys }) {
     return (
         <div>
-          {surveys.map(survey => 
-            <Survey 
-                key={survey.id}
-                survey={survey}
-                />
-            )}
-            
-        </div>
+            {surveys.map(survey =>
+
+                <div>
+                    <Survey
+                        key={survey.id}
+                        survey={survey}
+                    />
+                </div>
+            )
+            }
+        </div >
     );
 }
 

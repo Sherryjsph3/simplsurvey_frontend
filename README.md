@@ -1,5 +1,5 @@
 # SimplSurvey
-SimplSurvey is a simple application where users can
+SimplSurvey is a simple application where users can choose survey questions to answer from six different categories. The application also allows for execution of a customized survey of your choosing. Our goal was to focus on the formatting, grouping similar questions to keep surveys logical and focused as well as relevant. Choosing words over numbers and avoiding yesor no was a clear objective behind creating the Q&A for SimplSurey.
 
 ## `Technologies Used`
 * HTML5
@@ -11,18 +11,17 @@ SimplSurvey is a simple application where users can
 * SQL
 * [Color Hunt](https://colorhunt.co/)
 * [Unsplash](https://unsplash.com/)
-* [Pexels](https://www.pexels.com/)
 * [Imgur](https://imgur.com/)
 * [Invisionapp](https://www.invisionapp.com/inside-design/design-resources/do/)
 * [Lucid](https://lucid.app/documents#/dashboard?folder_id=home)
 * [daFont](https://www.dafont.com/) 
 
 ## `User Stories`
-* As a user, I would like to view all polls
-* As a user, I would like to create new polls
-* As a user, I would like to edit polls
-* As a user, I would like to delete polls
-* As a user, I would like to vote on a poll
+* As a user, I would like to view all surveys
+* As a user, I would like to create new surveys
+* As a user, I would like to edit a created survey
+* As a user, I would like to delete a created survey
+
 
 ## `Screenshots`
 
@@ -33,9 +32,15 @@ SimplSurvey is a simple application where users can
 ![SimplSurvey ERD](public/imgs/simplesurvey_erd.png)
 
 ### Working App
+![SimplSurvey Survey Page]()
+![SimplSurvey Categories Page]()
+![SimplSurvey New Survey Page]()
+![SimplSurvey My Surveys Page]()
+![SimplSurvey My Answers Page]()
 
 
 ## `Future Enhancements`
+On the next sprint we would like to accomplish giving the user the ability to vote on a survey,
 
 
 ## `Getting Started`

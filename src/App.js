@@ -5,30 +5,53 @@ import Main from './components/Main'
 //===========CSS IMPORT===============
 import './App.css';
 // ==========HOOKS====================
-import {useState, useEffect} from "react"
-// ==========FIREBASE IMPORTS=========
-import {auth} from './services/firebase';
 
+import { useState, useEffect } from "react"
+// ==========FIREBASE IMPORTS=========
+import { auth } from './services/firebase';
 
 function App() {
   const [surveyState, setSurveyState] = useState({
-    surveys: []});
-    const [user, setUser] = useState(null);
+    surveys: []
+  });
+  const [user, setUser] = useState(null);
+
+  const [existingUser, setExistingUser] = useState(false);
+
+  const [editfocus, setEditFocus] = useState(null)
+
+  const [surveyById, setSurveyById] = useState(null)
+
 
   useEffect(() => {
-    async function getSurveys() {
-      try {
-        const surveys = await fetch('http://localhost:3000/survey_questions').then(response => response.json()) 
-        setSurveyState({surveys})
-      } catch (error) {
-        console.log(error)
-      }
-    }
     getSurveys();
     const unsubscribe = auth.onAuthStateChanged((user) => setUser(user))
     // cleanup effect
     // return unsubscribe();
   }, []);
+
+  useEffect(() => {
+   filterSurveysById();
+  }, [editfocus]);
+
+  async function getSurveys() {
+    try {
+      const surveys = await fetch('http://localhost:3000/survey_questions').then(response => response.json())
+      setSurveyState({ surveys })
+      if(surveyById.id !== editfocus) {
+        filterSurveysById();
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  function filterSurveysById() {
+    const surveyById = surveyState.surveys.filter(function(survey) {
+        return survey.id === editfocus
+    })
+    setSurveyById(surveyById);
+  }
 
   async function handleCreateSurvey(formInputs) {
     try {
@@ -45,6 +68,7 @@ function App() {
     } catch (error) {
       console.log(error)
     }
+    getSurveys();
   }
 
   async function handleDeleteSurvey(surveyId) {
@@ -52,39 +76,52 @@ function App() {
       const surveys = await fetch(`http://localhost:3000/survey_questions/${surveyId}`, {
         method: 'DELETE',
       }).then(res => res.json());
-
-      setSurveyState({surveys});
+      getSurveys();
 
     } catch (error) {
       console.log(error)
     }
   }
 
-  async function handleUpdateSurvey(formInputs) {
+  async function handleUpdateSurvey(editFormInputs) {
     try {
-      const {categories, survey_question_text, id} = formInputs;
-      const surveys = await fetch(`http://localhost:3000/survey_question/${id}`, {
+      const { categories, survey_question_text, id } = editFormInputs;
+      const surveys = await fetch(`http://localhost:3000/survey_questions/${editfocus}`, {
         method: 'PUT',
         headers: {
           "Content-Type": "Application/json"
         },
-        body: JSON.stringify({categories, survey_question_text}),
+        body: JSON.stringify({ categories, survey_question_text }),
       }).then(res => res.json())
-      setSurveyState({surveys})
-    } catch(error) {
-      console.log(error) 
+      getSurveys();
+
+    } catch (error) {
+      console.log(error)
     }
   }
 
-
-
   return (
     <div className="App">
-      <Header />
-      <Nav />
-      <Main 
-      surveys={surveyState.surveys}
-      />
+      <div className="container">
+        <Header />
+        <Nav
+          existingUser={existingUser}
+          setExistingUser={setExistingUser}
+          user={user}
+        />
+        <Main
+          existingUser={existingUser}
+          user={user}
+          surveys={surveyState.surveys}
+          handleCreateSurvey={handleCreateSurvey}
+          handleDeleteSurvey={handleDeleteSurvey}
+          handleUpdateSurvey={handleUpdateSurvey}
+          editfocus={editfocus}
+          setEditFocus={setEditFocus}
+          surveyById={surveyById}
+        />
+
+      </div>
     </div>
   );
 }

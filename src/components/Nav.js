@@ -1,17 +1,92 @@
+import {login, logout} from '../services/firebase';
+import { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom'
 
-function Nav (props) {
+function Nav ({user, setExistingUser}) {
+ 
+
+    async function createUser() {
+        let currentUser = {
+            users: {
+                google_id: user.uid 
+            }
+        }
+        try {
+            const users = await fetch('http://localhost:3000/users', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'Application/json'
+                },
+                body: JSON.stringify(currentUser)
+            }).then(res => res.json())
+        } catch (error) {
+            console.log(error)
+        }
+        checkUserExist();
+    }
+
+    async function checkUserExist() {
+        console.log('check');
+       try {
+           const users = await fetch('http://localhost:3000/users').then(res => res.json()) 
+           const foundUser = users.find(u => u.google_id === user.uid)
+           if (foundUser) {
+               setExistingUser(foundUser.id);
+           } else if (user) {
+               createUser();
+           }
+       }  catch (error) {
+           console.log(error)
+       }
+    }
+      useEffect(() => {
+          checkUserExist();
+
+      }, [user])
+
+    function handleLogout() {
+        logout();
+        setExistingUser(false);
+    }
+
+         
+     
+
 
 return (
-    <div>
+    <nav>
         
-    <h2>login</h2>
-    <Link to='/categories'><h2>Categories</h2></Link>
-    <Link to='/form'><h2>New Survey</h2></Link>
-    <Link to=''><h2>My Surveys</h2></Link>
-    <Link to=''><h2>My Answers</h2></Link>
-  
-</div>
+    <div className="login-box">
+        {
+        user ? 
+        <div>
+            <div 
+             onClick={() => handleLogout()}
+            >
+            <p className="nav-text">Logout</p>
+            </div>
+            <Link to='/'><p className="nav-text">Home</p></Link>
+        <Link to='/categories'><p className="nav-text">Categories</p></Link>
+        <Link to='/new_survey'><p className="nav-text">New Survey</p></Link>
+        <Link to='/my_surveys'><p className="nav-text">My Surveys</p></Link>
+        <Link to='/my_answers'><p className="nav-text">My Answers</p></Link>
+        </div> 
+        
+        :     
+        <div>
+            <div
+            onClick={() => login()}
+            >
+            <p className="nav-text">Login</p>
+            </div>
+            <Link to='/'><p className="nav-text">Home</p></Link>
+        <Link to='/categories'><p className="nav-text">Categories</p></Link>
+        </div>
+        }
+    
+    </div>
+ 
+</nav>
  
   )
 }

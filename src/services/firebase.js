@@ -12,7 +12,7 @@ const firebaseConfig = {
     storageBucket: "simpl-survey.appspot.com",
     messagingSenderId: "16247264850",
     appId: "1:16247264850:web:d65ef6a82cc6b0f44db18b"
-  };
+};
 
 //   initialize the firebase app
 firebase.initializeApp(firebaseConfig);

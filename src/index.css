@@ -1,31 +1,325 @@
-/* body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+/*==========Fonts==========*/
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&display=swap');
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&family=Londrina+Solid&family=Montserrat:wght@100&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Outline&family=Montserrat:wght@100&display=swap');
+
+/*==========Variables==========*/
+:root {
+  --skyblue: rgb(131, 220, 238);
+  --darkblue: rgb(42, 45, 97);
+  --mustard: rgb(252, 203, 125);
+  --coral: rgb(251, 112, 116);
+}
 
 * {
   box-sizing: border-box;
   margin: 0;
 }
-.App {
+
+body {
   text-align: center;
-  background: url(https://i.imgur.com/LBDUD3J.jpg);
+  background: url(https://i.imgur.com/UGohCPf.jpg);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover;  
 }
 
+.container {
+  display: grid;
+  grid-template-areas:
+    "header header "
+    "nav content ";
+    
+  grid-template-columns: 20% 1fr ;
+  grid-template-rows: auto 1fr ;
+  grid-gap: 10px;
+  /* height: 100vh; */
+}
 
+/*==========Header==========*/
+header {
+  grid-area: header;
+}
 .logo {
-  font-family: 'Londrina Outline', cursive;
-  font-size: 60px;
+  font-family: 'Londrina Solid';
+  font-weight: lighter;
+  font-size: 80px;
+  color: var(--darkblue);
+  text-align: left;
+  margin: 10px
+}
+
+/*==========Nav==========*/
+nav {
+  grid-area: nav;
+  margin-left: 0.5rem;
+  margin-top: 180px;
+}
+
+.nav-text {
+  font-family: 'Londrina Solid';
+  font-size: 35px;
+  color: var(--darkblue);
+  margin:20px
+}
+
+a {
+  text-decoration: none;
+  color: var(--darkblue);
+}
+
+/*==========Main==========*/
+
+main {
+  grid-area: content;
+}
+
+/*==========Home==========*/
+.survey {
+  color: var(--darkblue);
+  margin: 12px;
+}
+
+.ques-h3 {
+  font-family:'Londrina Solid';
+  font-weight: lighter;
+  margin: 3px
+}
+
+.selectYourOptionText {
+  font-weight: lighter; 
+  font-family:'Londrina Solid';
+}
+
+.buttonText {
+  color: var(--darkblue);
+  border: none;
+  border-radius: 10px;
+  font-family: 'Montserrat'; 
+  font-weight: bolder;
+  font-size: 12px;
+}
+
+.pollButton {
+  border: none;
+  border: 1px solid var(--darkblue);
+  background: transparent;
+  border-radius: 10px;
+  margin:3px;
+  box-shadow: 1.5px 1.5px 1.5px rgba(42, 45, 97,0.5);
+}
+
+/*==========Form==========*/
+.aside {
+  grid-area: aside;
+  margin-right: 28rem;
+  margin-top: 3rem;
+}
+
+.new-form {
+  display: grid;
+  grid-template-columns: [labels] auto [controls] 5fr;
+  grid-auto-flow: row;
+  grid-gap: .8em;
+  padding: .3em;
+  border-radius: 8px;
+} 
+
+.new-form > input,
+.new-form > textarea,
+.new-form > button {
+  grid-column: controls;
+  grid-row: auto;
+  padding: 1em;
+}
+
+.nw-sur {
+  border-radius: 8px;
+  border: 1.2px solid var(--coral);
+  background: transparent;
+  cursor: pointer;
+  color: var(--coral);
+}
+
+.nw-sur:focus {
+  outline: 1px solid transparent;
+  border: 1px solid var(--mustard);
+  color: var(--coral);
+}
+
+.nw-sur::placeholder {
+  color: var(--coral);
+  font-family: 'Montserrat';
+}
+
+.nw-surtwo  {
+  visibility: hidden;
+}
+
+.nw-sub {
+    background: var(--mustard);
+    box-shadow: 2px 2px 2px rgb(251, 112, 116, 0.70);
+    font-family: 'Montserrat';  
+    font-size: 13px;
+    color:var(--coral);
+    border: 0px;
+    transition: 0.2s ease-in-out;
+    border-radius: 10px;
+}
+
+.nw-sub:hover {
+  cursor: pointer;
+  background:rgb(251, 112, 116, 0.80);
+  box-shadow: 3px 3px 3px rgb(252, 203, 125, 0.70);
+  color: var(--mustard)
+}
+
+.form-head {
+  font-family: 'Londrina Solid';
+  color: var(--darkblue);
+  margin-top: 80px;
+  font-size: 50px;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-position: under; 
+}
+
+.ques-img {
+  margin-right: 20px;
+  margin-right: -280px;
+  margin-top: 40px;
+}
+
+select {
+  outline: 0;
+  color: var(--coral);
+  cursor: pointer;
+  border:1.2px solid var(--coral);
+  border-radius:3px;
+  background-color: transparent;
+  font-family: 'Montserrat';
+  font-size: 12px;
+  padding: 1em;
+  border-radius: 8px;
+}
+
+.answerOption {
+  background: rgb(251, 112, 116, 0.80);
+  box-shadow: 2px 2px 2px rgb(252, 203, 125, 0.70);
+  font-family: 'Montserrat';  
+  font-size: 13px;
+  color:var(--mustard);
+  border: 0px;
+  transition: 0.2s ease-in-out;
+  border-radius: 10px;
+  grid-column: controls;
+  padding: 1em;
+ }
+
+ .answerOption:hover {
+  cursor: pointer;
+  background:var(--mustard);
+  box-shadow: 3px 3px 3px rgb(251, 112, 116, 0.70);
+  color:var(--coral);
+} 
+
+.answerOptionForm {
+  border-radius: 8px;
+  border: 1.2px solid var(--coral);
+  background: transparent;
+  cursor: pointer;
+  color: var(--coral);
+  transition: 0.2s ease-in-out;
+  border-radius: 10px;
+  grid-column: controls;
+  padding: 1em;
+  margin: 5px
+}
+
+.answerOptionForm:focus {
+  outline: 1px solid transparent;
+  border: 1px solid var(--mustard);
+  color: var(--coral);
+}
+
+.answerOptionForm::placeholder {
+  color: var(--coral);
+  font-family: 'Montserrat';
+  text-align: center;
+}
+
+/*==========Categories==========*/
+.category-head {
+  font-family: 'Londrina Solid';
+  color: var(--darkblue);
+  margin-top: 80px;
+  font-size: 50px;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-position: under; 
+}
+
+.categories {
+  font-family: 'Montserrat';
+  font-weight: bolder;
+  color: var(--darkblue);
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin: 20px;
+  border-radius: 25px;
+  background-color: rgb(252, 203, 125, 0.8);
+  width: 175px;
+  height: 170px;
+  border:3px solid var(--darkblue);
+}
+
+.category-img {
+  margin-top: 8px;
+  border-radius: 12px;
+  box-shadow: 3px 3px 3px rgba(42, 45, 97,0.8);
+}
+
+.frame {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin-top: 100px;
+  margin-left: 100px
+}
+
+.categories:hover {
+  box-shadow: 0 8px 16px 0 rgba(42, 45, 97,0.2);
+}
+
+/*==========Categories==========*/
+.categoryResults {
+  font-family: 'Londrina Solid';
+  color: var(--darkblue);
+  margin-top: 80px;
+  font-size: 50px;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-position: under; 
+}
+
+.mySurveys {
+  font-family: 'Londrina Solid';
+  color: var(--darkblue);
+  margin-top: 80px;
+  font-size: 50px;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-position: under;
+}
+
+.myAnswers {
+  font-family: 'Londrina Solid';
+  color: var(--darkblue);
+  margin-top: 80px;
+  font-size: 50px;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-position: under;
 }
 

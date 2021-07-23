@@ -1,38 +1,91 @@
-import {Route, Switch} from 'react-router-dom';
+import { useState } from "react";
+import { Route, Switch } from 'react-router-dom';
 import Categories from '../pages/Categories.js';
-import Form from './Form.js';
+import CategoryResults from '../pages/CategoryResults';
+import EditForm from './EditForm.js';
+import MySurveys from '../pages/MySurveys';
+import MyAnswers from '../pages/MyAnswers';
 import Surveys from './Surveys.js';
 import Survey from './Survey.js';
- 
-function Main ({surveys}) {
+import NewSurvey from "../pages/NewSurvey.js";
+
+function Main({ surveys, handleCreateSurvey, handleDeleteSurvey, handleUpdateSurvey, existingUser, user, editfocus, setEditFocus, surveyById }) {
+    const [selectedCategory, setSelectedCategory] = useState(null)
+  
+
     return (
         <>
-        <div>
-            <h1>Main</h1>
-        <Surveys 
-            surveys={surveys}
-            />
-        </div>
-        <main>
-        <Switch>
-           <Route exact path='/'>
-               
-           </Route>
-            <Route path='/categories'>
-                <Categories/>
-            </Route>
-            <Route path='/form'>
-                <Form/>
-            </Route>
-            <Route path='/survey_questions'>
-                <Surveys/>
-            </Route>
-            <Route path='/answer_options'>
-                <Survey/>
-            </Route>
-        </Switch>
-        </main>
-</>
+            <main>
+                <Switch>
+                    <Route exact path='/'>
+                        <Surveys
+                            existingUser={existingUser}
+                            surveys={surveys}
+                        />
+                    </Route>
+                    <Route
+                        path='/categories'
+                        render={(rp) => (
+                            <Categories
+                                category={selectedCategory}
+                                setSelectedCategory={setSelectedCategory}
+                                surveys={surveys}
+                                {...rp}
+                            />
+
+                        )}
+                    />
+                    <Route path='/category'>
+                        <CategoryResults
+                            surveys={surveys}
+                            category={selectedCategory}
+                        />
+                    </Route>
+                    <Route path='/new_survey'>
+                        <NewSurvey
+                        existingUser={existingUser}
+                        user={user}
+                        handleCreateSurvey={handleCreateSurvey}
+                        />
+                    </Route>
+                    <Route 
+                    path='/my_surveys'
+                    render={(rp) => (
+                        <MySurveys 
+                        existingUser={existingUser}
+                        user={user}
+                        handleDeleteSurvey={handleDeleteSurvey}
+                        handleUpdateSurvey={handleUpdateSurvey}
+                        surveys={surveys}
+                        setEditFocus={setEditFocus}
+                        {...rp}
+                        />
+
+                    )}
+                    />
+                        
+                   
+                    <Route path='/my_answers'>
+                        <MyAnswers />
+                    </Route>
+                    <Route 
+                    path='/edit_question'
+                    render={(rp) => (
+
+                        <EditForm 
+                        handleUpdateSurvey={handleUpdateSurvey}
+                        editfocus={editfocus}
+                        existingUser={existingUser}
+                        surveyById={surveyById}
+                        {...rp}
+
+                        />
+                    )}
+                    />
+                    
+                </Switch>
+            </main>
+        </>
     )
 }
 
