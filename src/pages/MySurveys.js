@@ -17,7 +17,7 @@ function MySurveys ({existingUser, handleUpdateSurvey, handleDeleteSurvey, surve
         }
     return (
         <div>
-            <h1 className='mySurveys'>Mysurveys</h1>
+            <h1 className='mySurveys'>My Surveys</h1>
             <UserSurveys 
             setEditFocus={setEditFocus}
             filterSurveys={filterSurveys}

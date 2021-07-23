@@ -323,3 +323,21 @@ select {
   text-underline-position: under;
 }
 
+/*==========UserSurveys==========*/
+.delete {
+  border: none;
+  border: 1px solid var(--darkblue);
+  background: transparent;
+  border-radius: 10px;
+  margin:3px;
+  box-shadow: 1.5px 1.5px 1.5px rgba(42, 45, 97,0.5);
+}
+
+.edit {
+  border: none;
+  border: 1px solid var(--darkblue);
+  background: transparent;
+  border-radius: 10px;
+  margin:3px;
+  box-shadow: 1.5px 1.5px 1.5px rgba(42, 45, 97,0.5);
+}
