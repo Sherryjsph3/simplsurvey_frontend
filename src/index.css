@@ -22,7 +22,7 @@ body {
   text-align: center;
   background: url(https://i.imgur.com/UGohCPf.jpg);
   background-repeat: no-repeat;
-  background-size: 110%;  
+  background-size: cover;  
 }
 
 .container {
@@ -34,8 +34,9 @@ body {
   grid-template-columns: 20% 1fr ;
   grid-template-rows: auto 1fr ;
   grid-gap: 10px;
-  height: 100vh;
+  /* height: 100vh; */
 }
+
 /*==========Header==========*/
 header {
   grid-area: header;
@@ -101,7 +102,7 @@ main {
 }
 
 .pollButton {
-  /* border: none; */
+  border: none;
   border: 1px solid var(--darkblue);
   background: transparent;
   border-radius: 10px;
@@ -109,14 +110,13 @@ main {
   box-shadow: 1.5px 1.5px 1.5px rgba(42, 45, 97,0.5);
 }
 
-
 /*==========Form==========*/
 .aside {
   grid-area: aside;
   margin-right: 28rem;
-  margin-top: 8rem;
-  
+  margin-top: 3rem;
 }
+
 .new-form {
   display: grid;
   grid-template-columns: [labels] auto [controls] 5fr;
@@ -153,8 +153,8 @@ main {
   font-family: 'Montserrat';
 }
 
-.nwsurtwo {
-  display: none;
+.nw-surtwo  {
+  visibility: hidden;
 }
 
 .nw-sub {
@@ -187,12 +187,11 @@ main {
 
 .ques-img {
   margin-right: 20px;
-  margin-right: -350px;
-  margin-top: 100px;
+  margin-right: -280px;
+  margin-top: 40px;
 }
 
 select {
-  /* appearance: none; */
   outline: 0;
   color: var(--coral);
   cursor: pointer;
@@ -216,7 +215,6 @@ select {
   border-radius: 10px;
   grid-column: controls;
   padding: 1em;
-  
  }
 
  .answerOption:hover {

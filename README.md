@@ -1,5 +1,5 @@
 # SimplSurvey
-SimplSurvey is a simple application where users can choose survey questions to answer from six different categories. The application also allows for execution of a customized survey of your choosing.
+SimplSurvey is a simple application where users can choose survey questions to answer from six different categories. The application also allows for execution of a customized survey of your choosing. Our goal was to focus on the formatting, grouping similar questions to keep surveys logical and focused as well as relevant. Choosing words over numbers and avoiding yesor no was a clear objective behind creating the Q&A for SimplSurey.
 
 ## `Technologies Used`
 * HTML5
