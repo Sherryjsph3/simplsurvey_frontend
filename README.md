@@ -32,15 +32,18 @@ SimplSurvey is a simple application where users can choose survey questions to a
 ![SimplSurvey ERD](public/imgs/simplesurvey_erd.png)
 
 ### Working App
-![SimplSurvey Survey Page]()
-![SimplSurvey Categories Page]()
-![SimplSurvey New Survey Page]()
-![SimplSurvey My Surveys Page]()
-![SimplSurvey My Answers Page]()
+![SimplSurvey Survey Page](public/imgs/SimplSurveyHome.png)
+![SimplSurvey Categories Page](public/imgs/SimplSurveyCategories.png)
+![SimplSurvey New Survey Page](public/imgs/SimplSurveyNew.png)
+<!-- ![SimplSurvey My Surveys Page]()
+![SimplSurvey My Answers Page]() -->
 
 
 ## `Future Enhancements`
-On the next sprint we would like to accomplish giving the user the ability to vote on a survey,
+Go forward we would like to accomplish: 
+* having each answer option increment/decrement with percentage after each vote
+* we would like the My Surveys and My Answers pages to populate with each specific users created surveys and chosen answers
+* we would like the categories page to lead you to a list of survey questions and answer options pertaining to that survey category 
 
 
 ## `Getting Started`
