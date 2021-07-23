@@ -2,33 +2,26 @@ import { useState, useEffect } from "react";
 
 import AnswerOptionForm from './AnswerOptionForm';
 
-function EditForm(props) {
+function EditForm({editfocus, existingUser, handleUpdateSurvey, surveys, user, history, surveyById}) {
     const [answerOptions, setAnswerOptions] = useState([])
     const [editFormState, setEditFormState] = useState({
         user_id: 0,
         categories: 'food',
         survey_question_text: '',
     });
-
-    function filterSurveys() {
-        const surveyById = props.surveys.filter(function(survey) {
-            return props.survey.id === props.editFocus
-        })
+    useEffect(() => {
+        console.log(surveyById);
         setEditFormState({
-            user_id: props.existingUser,
-            categories: surveyById.categories,
-            survey_question_text: surveyById.survey_question_text
+            user_id: existingUser,
+            categories: surveyById[0].categories,
+            survey_question_text: surveyById[0].survey_question_text
         })
-        }
+    }, [surveyById])
+
+  
 
 
-// useEffect(() => {
-//     setFormState(prevState => ({
-//         ...prevState,
-//         user_id: props.existingUser
-//     }))
-    
-// },[props.existingUser]);
+
 
 function handleChange(event) {
     setEditFormState(prevState => ({
@@ -38,14 +31,15 @@ function handleChange(event) {
 }
 
 function handleSubmit(event) {
-    // props.handleCreateSurvey(formState);
+    handleUpdateSurvey(editFormState);
+    history.push('/my_surveys')
 }
 
 
 return (
     <>
 
-    <h1 className='form-head'>New Surveys</h1>
+    <h1 className='form-head'>Edit Survey</h1>
     <div className='aside'>
     <form className='new-form' onSubmit={handleSubmit}>
         <input
@@ -53,7 +47,7 @@ return (
         onChange={handleChange}
         name='user_id'
         type='text'
-        value={props.existingUser}
+        value={existingUser}
         id='user_id'
         />
       
@@ -82,7 +76,7 @@ return (
         value={editFormState.survey_question_text}
         id='survey_question_text'
         />
-         <input className='nw-sub' type="submit" value={props.survey ? "Edit" : "Add a New Survey"} />
+         <input className='nw-sub' type="submit" value="edit" />
     </form>
     {
     
