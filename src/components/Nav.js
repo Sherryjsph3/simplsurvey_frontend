@@ -12,7 +12,7 @@ function Nav ({user, setExistingUser}) {
             }
         }
         try {
-            const users = await fetch('http://localhost:3000/users', {
+            const users = await fetch('https://simplsurvey-api.herokuapp.com/users', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'Application/json'
@@ -28,7 +28,7 @@ function Nav ({user, setExistingUser}) {
     async function checkUserExist() {
         console.log('check');
        try {
-           const users = await fetch('http://localhost:3000/users').then(res => res.json()) 
+           const users = await fetch('https://simplsurvey-api.herokuapp.com/users').then(res => res.json()) 
            const foundUser = users.find(u => u.google_id === user.uid)
            if (foundUser) {
                setExistingUser(foundUser.id);
