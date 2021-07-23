@@ -9,9 +9,9 @@ import Surveys from './Surveys.js';
 import Survey from './Survey.js';
 import NewSurvey from "../pages/NewSurvey.js";
 
-function Main({ surveys, handleCreateSurvey, handleDeleteSurvey, handleUpdateSurvey, getSurveys, existingUser, user }) {
+function Main({ surveys, handleCreateSurvey, handleDeleteSurvey, handleUpdateSurvey, existingUser, user, editfocus, setEditFocus, surveyById }) {
     const [selectedCategory, setSelectedCategory] = useState(null)
-    const [editfocus, setEditFocus] = useState(null)
+  
 
     return (
         <>
@@ -68,16 +68,21 @@ function Main({ surveys, handleCreateSurvey, handleDeleteSurvey, handleUpdateSur
                     <Route path='/my_answers'>
                         <MyAnswers />
                     </Route>
-                    <Route path='/edit_question'>
+                    <Route 
+                    path='/edit_question'
+                    render={(rp) => (
+
                         <EditForm 
                         handleUpdateSurvey={handleUpdateSurvey}
                         editfocus={editfocus}
                         existingUser={existingUser}
-                        user={user}
-                        surveys={surveys}
+                        surveyById={surveyById}
+                        {...rp}
 
                         />
-                    </Route>
+                    )}
+                    />
+                    
                 </Switch>
             </main>
         </>

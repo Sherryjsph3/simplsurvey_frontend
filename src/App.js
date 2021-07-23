@@ -18,6 +18,11 @@ function App() {
 
   const [existingUser, setExistingUser] = useState(false);
 
+  const [editfocus, setEditFocus] = useState(null)
+
+  const [surveyById, setSurveyById] = useState(null)
+
+
   useEffect(() => {
     getSurveys();
     const unsubscribe = auth.onAuthStateChanged((user) => setUser(user))
@@ -25,13 +30,27 @@ function App() {
     // return unsubscribe();
   }, []);
 
+  useEffect(() => {
+   filterSurveysById();
+  }, [editfocus]);
+
   async function getSurveys() {
     try {
       const surveys = await fetch('http://localhost:3000/survey_questions').then(response => response.json())
       setSurveyState({ surveys })
+      if(surveyById.id !== editfocus) {
+        filterSurveysById();
+      }
     } catch (error) {
       console.log(error)
     }
+  }
+
+  function filterSurveysById() {
+    const surveyById = surveyState.surveys.filter(function(survey) {
+        return survey.id === editfocus
+    })
+    setSurveyById(surveyById);
   }
 
   async function handleCreateSurvey(formInputs) {
@@ -64,21 +83,21 @@ function App() {
     }
   }
 
-  async function handleUpdateSurvey(formInputs) {
+  async function handleUpdateSurvey(editFormInputs) {
     try {
-      const { categories, survey_question_text, id } = formInputs;
-      const surveys = await fetch(`http://localhost:3000/survey_question/${id}`, {
+      const { categories, survey_question_text, id } = editFormInputs;
+      const surveys = await fetch(`http://localhost:3000/survey_questions/${editfocus}`, {
         method: 'PUT',
         headers: {
           "Content-Type": "Application/json"
         },
         body: JSON.stringify({ categories, survey_question_text }),
       }).then(res => res.json())
-      setSurveyState({ surveys })
+      getSurveys();
+
     } catch (error) {
       console.log(error)
     }
-    getSurveys();
   }
 
   return (
@@ -94,10 +113,12 @@ function App() {
           existingUser={existingUser}
           user={user}
           surveys={surveyState.surveys}
-          getSurveys={getSurveys}
           handleCreateSurvey={handleCreateSurvey}
           handleDeleteSurvey={handleDeleteSurvey}
           handleUpdateSurvey={handleUpdateSurvey}
+          editfocus={editfocus}
+          setEditFocus={setEditFocus}
+          surveyById={surveyById}
         />
 
       </div>
