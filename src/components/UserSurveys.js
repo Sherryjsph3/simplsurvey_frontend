@@ -21,10 +21,10 @@ function Surveys({ surveys, handleDeleteSurvey, filterSurveys, history, setEditF
                         key={survey.id}
                         survey={survey}
                     />
-                <button 
+                <button className='delete'
                     onClick={() => deleteSurvey(survey.id)}
                 >Delete</button>
-                <button
+                <button className='edit'
                     onClick={() => editSurvey(survey.id)}
                 >Edit</button>
                 </div>
