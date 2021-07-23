@@ -32,7 +32,7 @@ function Nav ({user, setExistingUser}) {
            const foundUser = users.find(u => u.google_id === user.uid)
            if (foundUser) {
                setExistingUser(foundUser.id);
-           } else if (user) {
+           } else if (!foundUser) {
                createUser();
            }
        }  catch (error) {
