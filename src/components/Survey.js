@@ -1,18 +1,29 @@
-import { useState } from "react";
+function Survey({ survey, getSurveys }) {
 
-
-function Survey({ survey }) {
-
-    function getRandom(maxNum) {
-        return Math.floor(Math.random() * 50);
+    function handleClick(option) {
+        async function handleUpdateVote() {
+            let addVote = option.answer_numeric + 1
+            const vote = {
+                answer_numeric: addVote
+            }
+            console.log(addVote)
+            try {
+                const { answer_numeric } = vote
+                console.log(answer_numeric)
+                const surveys = await fetch(`http://localhost:3000/survey_questions/${survey.id}/answer_options/${option.id}`, {
+                    method: 'PUT',
+                    headers: {
+                        "Content-Type": "Application/json"
+                    },
+                    body: JSON.stringify({ answer_numeric })
+                })
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        handleUpdateVote();
+        getSurveys();
     }
-    const [votes, setVotes] = useState((getRandom()));
-
-    function handleIncrement() {
-        setVotes(votes + 1)
-    }
-
-
     return (
 
         <div className="survey">
@@ -24,13 +35,11 @@ function Survey({ survey }) {
                         return (
                             <>
                                 <button
-                                    onClick={handleIncrement}
+                                    onClick={() => handleClick(option)}
                                     className="pollButton" default-value={option.answer_text}
-                                    alt-value="AFTER CLICK"
                                     key={option.id}>
-                                    <span className="GraphicHere"></span>
                                     <span className="buttonText">{option.answer_text}</span>
-                                    <span className="voteCount">{votes}</span>
+                                    <span className="voteCount">       {option.answer_numeric}</span>
                                 </button> <br />
                             </>
                         )
