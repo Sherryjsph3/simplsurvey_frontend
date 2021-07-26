@@ -18,7 +18,7 @@ function EditForm({editfocus, existingUser, handleUpdateSurvey, surveys, user, h
         })
     }, [surveyById])
 
-  
+  console.log(surveyById);
 
 
 

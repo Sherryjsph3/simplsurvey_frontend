@@ -1,15 +1,18 @@
 import Survey from "./Survey";
-import {useState} from "react";
-function Surveys({ surveys, handleDeleteSurvey, filterSurveys, history, setEditFocus }) {
+import {useState, useEffect} from "react";
+function Surveys({ surveys, handleDeleteSurvey, history, setEditFocus, surveyById, editFocus }) {
 
     function deleteSurvey (id) {
         handleDeleteSurvey(id);
-        filterSurveys();
     }
-
+    
+    function redirect (){
+        history.push(`/edit_question`)
+    }
     function editSurvey (id) {
         setEditFocus(id);
-        history.push(`/edit_question`);
+        setTimeout(redirect, 1400)
+        
     }
 
     return (

@@ -5,7 +5,6 @@ import Main from './components/Main'
 //===========CSS IMPORT===============
 import './App.css';
 // ==========HOOKS====================
-
 import { useState, useEffect } from "react"
 // ==========FIREBASE IMPORTS=========
 import { auth } from './services/firebase';
@@ -20,7 +19,12 @@ function App() {
 
   const [editfocus, setEditFocus] = useState(null)
 
-  const [surveyById, setSurveyById] = useState(null)
+  // this is for the edit survey
+  const [surveyById, setSurveyById] = useState([]) 
+
+  // this is for the mysurveys page 
+  const [surveysByUser, setSurveysByUser] = useState([])
+
 
 
   useEffect(() => {
@@ -33,17 +37,23 @@ function App() {
   useEffect(() => {
     filterSurveysById();
   }, [editfocus]);
+  useEffect(() => {
+  }, [surveyById]);
+  useEffect(() => {
+    filterSurveysByUser();
+  }, [existingUser]);
 
   async function getSurveys() {
     try {
       const surveys = await fetch('https://simplsurvey-api.herokuapp.com/survey_questions').then(response => response.json())
       setSurveyState({ surveys })
-      if (surveyById.id !== editfocus) {
-        filterSurveysById();
-      }
     } catch (error) {
       console.log(error)
     }
+    if (surveyById.id !== editfocus) {
+      filterSurveysById();
+    }
+    filterSurveysByUser();
   }
 
   function filterSurveysById() {
@@ -52,8 +62,15 @@ function App() {
     })
     setSurveyById(surveyById);
   }
+  function filterSurveysByUser() {
+    const surveysByUser = surveyState.surveys.filter(function (survey) {
+      return survey.user_id === existingUser
+    })
+    setSurveysByUser(surveysByUser);
+  }
 
   async function handleCreateSurvey(formInputs) {
+    console.log(formInputs);
     try {
       const surveys = await fetch('https://simplsurvey-api.herokuapp.com/survey_questions', {
         method: 'POST',
@@ -62,9 +79,6 @@ function App() {
         },
         body: JSON.stringify(formInputs)
       }).then(res => res.json())
-
-      setSurveyState({ surveys });
-
     } catch (error) {
       console.log(error)
     }
@@ -76,11 +90,11 @@ function App() {
       const surveys = await fetch(`https://simplsurvey-api.herokuapp.com/survey_questions/${surveyId}`, {
         method: 'DELETE',
       }).then(res => res.json());
-      getSurveys();
-
+      
     } catch (error) {
       console.log(error)
     }
+    getSurveys();
   }
 
   async function handleUpdateSurvey(editFormInputs) {
@@ -120,6 +134,7 @@ function App() {
           editfocus={editfocus}
           setEditFocus={setEditFocus}
           surveyById={surveyById}
+          surveysByUser={surveysByUser}
         />
 
       </div>

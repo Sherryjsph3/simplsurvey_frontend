@@ -6,10 +6,11 @@ function Nav ({user, setExistingUser}) {
  
 
     async function createUser() {
+        console.log('check');
         let currentUser = {
-            users: {
+            
                 google_id: user.uid 
-            }
+            
         }
         try {
             const users = await fetch('https://simplsurvey-api.herokuapp.com/users', {
@@ -32,7 +33,7 @@ function Nav ({user, setExistingUser}) {
            const foundUser = users.find(u => u.google_id === user.uid)
            if (foundUser) {
                setExistingUser(foundUser.id);
-           } else if (!foundUser) {
+           } else if (user) {
                createUser();
            }
        }  catch (error) {

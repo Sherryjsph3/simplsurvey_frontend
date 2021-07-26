@@ -9,7 +9,7 @@ import Surveys from './Surveys.js';
 import Survey from './Survey.js';
 import NewSurvey from "../pages/NewSurvey.js";
 
-function Main({ getSurveys, surveys, handleCreateSurvey, handleDeleteSurvey, handleUpdateSurvey, existingUser, user, editfocus, setEditFocus, surveyById }) {
+function Main({ getSurveys, surveys, handleCreateSurvey, handleDeleteSurvey, handleUpdateSurvey, existingUser, user, editfocus, setEditFocus, surveyById, surveysByUser }) {
     const [selectedCategory, setSelectedCategory] = useState(null)
 
 
@@ -58,7 +58,10 @@ function Main({ getSurveys, surveys, handleCreateSurvey, handleDeleteSurvey, han
                                 handleDeleteSurvey={handleDeleteSurvey}
                                 handleUpdateSurvey={handleUpdateSurvey}
                                 surveys={surveys}
+                                editfocus={editfocus}
                                 setEditFocus={setEditFocus}
+                                surveysByUser={surveysByUser}
+                                surveyById={surveyById}
                                 {...rp}
                             />
 
